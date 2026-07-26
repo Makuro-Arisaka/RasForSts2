@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using RasForSts2.Scripts.Characters;
 using RasForSts2.Scripts.Commands;
+using RasForSts2.Scripts.Helpers;
 using RasForSts2.Scripts.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -47,6 +48,7 @@ public class MoonlightShield : XilaCardModel
 	public override IEnumerable<CardKeyword> CanonicalKeywords => Array.Empty<CardKeyword>();
 
 	protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+		QueenWeaponHoverTip.Create(),
 		HoverTipFactory.FromPower<GuardPower>(),
 		HoverTipFactory.FromPower<MoonlightShieldPower>(),
 		HoverTipFactory.Static(StaticHoverTip.Block),

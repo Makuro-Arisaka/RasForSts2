@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using RasForSts2.Scripts.Characters;
+using RasForSts2.Scripts.Helpers;
 using RasForSts2.Scripts.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -39,6 +40,7 @@ public class QueenHarp : XilaCardModel
     public override IEnumerable<CardKeyword> CanonicalKeywords => Array.Empty<CardKeyword>();
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        QueenWeaponHoverTip.Create(),
         HoverTipFactory.FromPower<VulnerablePower>(),
         HoverTipFactory.FromPower<WeakPower>(),
         HoverTipFactory.FromPower<StrengthPower>(),

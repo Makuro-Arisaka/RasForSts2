@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using RasForSts2.Scripts.Characters;
+using RasForSts2.Scripts.Helpers;
 using RasForSts2.Scripts.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -30,5 +31,9 @@ public class MountainStaff : ModRelicTemplate
     );
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
-        new[] { HoverTipFactory.FromPower<MoonlightGreatswordPower>() };
+        new IHoverTip[]
+        {
+            QueenWeaponHoverTip.Create(),
+            HoverTipFactory.FromPower<MoonlightGreatswordPower>(),
+        };
 }

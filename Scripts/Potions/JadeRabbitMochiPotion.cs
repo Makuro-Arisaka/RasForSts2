@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Logging;
 using RasForSts2.Scripts.Cards;
 using RasForSts2.Scripts.Characters;
+using RasForSts2.Scripts.Helpers;
 using RasForSts2.Scripts.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -29,6 +30,7 @@ public sealed class JadeRabbitMochiPotion : ModPotionTemplate
     );
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        QueenWeaponHoverTip.Create(),
         HoverTipFactory.FromPower<JadeRabbitMochiPower>(),
     ];
 

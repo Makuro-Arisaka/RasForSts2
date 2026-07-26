@@ -76,5 +76,7 @@
   "RAS_FOR_STS2_CARD_FARRAH_HELL_ASH.title": "Farrah's Hell Ash",
   "RAS_FOR_STS2_CARD_FARRAH_HELL_ASH.description": "Whenever a card is Exhausted, gain {Guard:diff()} [gold]Guard[/gold].",
   "RAS_FOR_STS2_CARD_MEL_THORN_FERN.title": "Mel's Thorn Fern",
-  "RAS_FOR_STS2_CARD_MEL_THORN_FERN.description": "Deal {Damage:diff()} damage to all enemies. Apply [gold]Doom[/gold] and [gold]Poison[/gold] equal to the damage dealt."
+  "RAS_FOR_STS2_CARD_MEL_THORN_FERN.description": "Deal {Damage:diff()} damage to all enemies. Apply [gold]Doom[/gold] and [gold]Poison[/gold] equal to the damage dealt.",
+  "QUEEN_WEAPON_HOVER_TIP.title": "Queen Weapon",
+  "QUEEN_WEAPON_HOVER_TIP.description": "When you play a Queen Weapon card, switch the Queen Weapon effect."
 }

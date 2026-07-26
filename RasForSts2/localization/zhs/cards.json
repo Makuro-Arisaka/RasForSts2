@@ -76,5 +76,7 @@
   "RAS_FOR_STS2_CARD_FARRAH_HELL_ASH.title": "法拉的地狱之灰",
   "RAS_FOR_STS2_CARD_FARRAH_HELL_ASH.description": "每当有一张牌被消耗时，获得{Guard:diff()}点[gold]护卫[/gold]。",
   "RAS_FOR_STS2_CARD_MEL_THORN_FERN.title": "梅尔的荆棘蕨草",
-  "RAS_FOR_STS2_CARD_MEL_THORN_FERN.description": "对所有敌人造成{Damage:diff()}点伤害。给予等量于所造成伤害的[gold]灾厄[/gold]和[gold]中毒[/gold]。"
+  "RAS_FOR_STS2_CARD_MEL_THORN_FERN.description": "对所有敌人造成{Damage:diff()}点伤害。给予等量于所造成伤害的[gold]灾厄[/gold]和[gold]中毒[/gold]。",
+  "QUEEN_WEAPON_HOVER_TIP.title": "女王武具",
+  "QUEEN_WEAPON_HOVER_TIP.description": "打出女王武具牌时，切换女王武具效果。"
 }

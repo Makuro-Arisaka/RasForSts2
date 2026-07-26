@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using RasForSts2.Scripts.Characters;
 using RasForSts2.Scripts.Commands;
+using RasForSts2.Scripts.Helpers;
 using RasForSts2.Scripts.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -48,6 +49,7 @@ public class MoonlightStaff : XilaCardModel
 	public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
 	protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+		QueenWeaponHoverTip.Create(),
 		HoverTipFactory.FromPower<GuardPower>(),
 		HoverTipFactory.FromPower<MoonlightStaffPower>(),
 		HoverTipFactory.FromPower<WeakPower>(),
