@@ -7,15 +7,15 @@ using STS2RitsuLib.Scaffolding.Content;
 namespace RasForSts2.Scripts.Cards;
 
 [RegisterCard(typeof(XilaCardPool))]
-public class RarePowerPlaceholder1 : XilaCardModel
+public class UncommonSkillPlaceholder1 : XilaCardModel
 {
     private const int energyCost = 0;
-    private const CardType type = CardType.Power;
-    private const CardRarity rarity = CardRarity.Rare;
+    private const CardType type = CardType.Skill;
+    private const CardRarity rarity = CardRarity.Uncommon;
     private const TargetType targetType = TargetType.Self;
     private const bool shouldShowInCardLibrary = true;
 
-    public RarePowerPlaceholder1() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }
+    public UncommonSkillPlaceholder1() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

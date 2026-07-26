@@ -18,7 +18,7 @@ public class XilaCharacter : ModCharacterTemplate<XilaCardPool, XilaRelicPool, X
 
     public override CharacterGender Gender => CharacterGender.Feminine;
 
-    public override int StartingHp => 75;
+    public override int StartingHp => 67;
     public override int StartingGold => 99;
 
     public override CharacterAssetProfile AssetProfile => CharacterAssetProfiles
