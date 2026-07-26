@@ -1,0 +1,23 @@
+{
+  "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.title": "Hero's Proof",
+  "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.description": "The first time you play a Queen Weapon card each turn, restore 1 Energy. At the start of each turn, gain 1 [gold]Guard[/gold].",
+  "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.flavor": "She's always carried it, even though it's heavier than she is.",
+  "RAS_FOR_STS2_RELIC_TOPAZ_AMULET.title": "Topaz Amulet",
+  "RAS_FOR_STS2_RELIC_TOPAZ_AMULET.description": "At the end of combat, if you took no damage, your card rewards include an additional card. Also drop [gold]{Gold}[/gold] additional gold.",
+  "RAS_FOR_STS2_RELIC_TOPAZ_AMULET.flavor": "Legend says topaz reflects the bearer's resilience; only the unscathed earn its gifts.",
+  "RAS_FOR_STS2_RELIC_RED_BOOKLET.title": "Red Booklet",
+  "RAS_FOR_STS2_RELIC_RED_BOOKLET.description": "When your HP would drop to 0 or below, heal [blue]{Heal}%[/blue] of your max HP and gain [gold]{Gold}[/gold] gold. (Can only trigger once.)",
+  "RAS_FOR_STS2_RELIC_RED_BOOKLET.flavor": "The bloodstained booklet holds an ancient pact: gold as ransom, life as price.",
+  "RAS_FOR_STS2_RELIC_MOUNTAIN_STAFF.title": "Mountain Staff",
+  "RAS_FOR_STS2_RELIC_MOUNTAIN_STAFF.description": "When your Queen Weapon is the Moonlight Greatsword, attack cards you play deal an additional 75% damage, but enemy attacks also deal an additional 75% damage to you.",
+  "RAS_FOR_STS2_RELIC_MOUNTAIN_STAFF.flavor": "The ancient staff draws power from the earth, sharpening the Moonlight Greatsword's edge.",
+  "RAS_FOR_STS2_RELIC_TRICKERY_BOOK.title": "Trickery Book",
+  "RAS_FOR_STS2_RELIC_TRICKERY_BOOK.description": "When you generate a card, apply 1 Doom and 1 Poison to all enemies.",
+  "RAS_FOR_STS2_RELIC_TRICKERY_BOOK.flavor": "Within its treacherous pages, every chapter hides a deadly trap.",
+  "RAS_FOR_STS2_RELIC_STONE_DRAGON_ARMOR.title": "Stone Dragon Armor",
+  "RAS_FOR_STS2_RELIC_STONE_DRAGON_ARMOR.description": "When your Guard stacks are depleted, gain [blue]{Guard}[/blue] Guard at the start of next turn.",
+  "RAS_FOR_STS2_RELIC_STONE_DRAGON_ARMOR.flavor": "Woven from stone dragon scales, even shattered, it reforms at dawn.",
+  "RAS_FOR_STS2_RELIC_BEAT_BOOTS.title": "Beat Boots",
+  "RAS_FOR_STS2_RELIC_BEAT_BOOTS.description": "The first time you switch Queen Weapon each combat, draw [blue]{Cards}[/blue] card(s) and gain [blue]{Guard}[/blue] Guard.",
+  "RAS_FOR_STS2_RELIC_BEAT_BOOTS.flavor": "Treading to an ancient rhythm, every switch is perfectly timed."
+}

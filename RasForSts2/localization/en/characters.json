@@ -1,0 +1,17 @@
+{
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.aromaPrinciple": "[sine][blue]...Beneath the moonlight, the sword's shadow is silent...[/blue][/sine]",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.banter.alive.endTurnPing": "...",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.banter.dead.endTurnPing": "...",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.cardsModifierDescription": "Xila's cards will now appear in rewards and shops.",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.cardsModifierTitle": "Xila Cards",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.description": "A bunny-eared girl from the Moonlight Realm.\nThe [gold]Moonlight Greatsword[/gold] in her hands is heavier than she is.",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.eventDeathPrevention": "Can't... fall here... not yet...",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.goldMonologue": "[sine]These coins... can be used to sharpen the sword...[/sine]",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.possessiveAdjective": "her",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.pronounObject": "her",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.pronounPossessive": "hers",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.pronounSubject": "she",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.title": "Xila",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.titleObject": "Xila",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.unlockText": "Play a game with [pink]{Prerequisite}[/pink] to unlock this character."
+}

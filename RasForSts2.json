@@ -1,0 +1,14 @@
+{
+  "id": "RasForSts2",
+  "name": "RasForSts2",
+  "author": "114514",
+  "description": "Mod 描述",
+  "version": "0.1.0",
+  "min_game_version": "0.107.1",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": [
+    { "id": "STS2-RitsuLib", "min_version": "0.2.27" }
+    ],
+  "affects_gameplay": true
+}

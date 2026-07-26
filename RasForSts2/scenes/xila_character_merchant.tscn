@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://xila_merchant_scene"]
+
+[ext_resource type="Texture2D" uid="uid://xila_merch_tex" path="res://RasForSts2/images/visuals/01.png" id="1_xilamerch"]
+
+[node name="XilaMerchant" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_xilamerch")
+scale = Vector2(0.5, 0.5)

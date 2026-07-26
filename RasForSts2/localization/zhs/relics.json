@@ -1,0 +1,23 @@
+{
+  "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.title": "英雄的证明",
+  "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.description": "每回合你第一次打出女王武具牌时，回复1点能量。每回合开始时获得1点[gold]护卫[/gold]。",
+  "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.flavor": "她一直带着它，即使它比她自己还重。",
+  "RAS_FOR_STS2_RELIC_TOPAZ_AMULET.title": "黄玉护符",
+  "RAS_FOR_STS2_RELIC_TOPAZ_AMULET.description": "在战斗结束时，如果你没有受到伤害，则你的卡牌奖励额外包含一张卡牌。并额外掉落[gold]{Gold}[/gold]金币。",
+  "RAS_FOR_STS2_RELIC_TOPAZ_AMULET.flavor": "传说黄玉能映照出持有者的坚韧，无伤者方能获得它的馈赠。",
+  "RAS_FOR_STS2_RELIC_RED_BOOKLET.title": "赤短册",
+  "RAS_FOR_STS2_RELIC_RED_BOOKLET.description": "当你的生命值将要降至0或以下时，回复最大生命值的[blue]{Heal}%[/blue]，获得[gold]{Gold}[/gold]金币。（仅能起效一次）",
+  "RAS_FOR_STS2_RELIC_RED_BOOKLET.flavor": "染血的短册上写着古老的契约：以黄金为赎，以生命为价。",
+  "RAS_FOR_STS2_RELIC_MOUNTAIN_STAFF.title": "山杖",
+  "RAS_FOR_STS2_RELIC_MOUNTAIN_STAFF.description": "当你的女王武具为月光大剑时，打出的攻击牌造成的伤害再额外增加75%，但敌人攻击对你造成的伤害再额外增加75%。",
+  "RAS_FOR_STS2_RELIC_MOUNTAIN_STAFF.flavor": "古老的法杖从大地中汲取力量，让月光大剑的锋芒更盛。",
+  "RAS_FOR_STS2_RELIC_TRICKERY_BOOK.title": "虞诈集",
+  "RAS_FOR_STS2_RELIC_TRICKERY_BOOK.description": "当你生成一张牌时，对所有敌人施加1层灾厄和1层中毒。",
+  "RAS_FOR_STS2_RELIC_TRICKERY_BOOK.flavor": "诡谲的篇章中，每一页都藏着致命的陷阱。",
+  "RAS_FOR_STS2_RELIC_STONE_DRAGON_ARMOR.title": "石龙链甲",
+  "RAS_FOR_STS2_RELIC_STONE_DRAGON_ARMOR.description": "当你的护卫层数消失时，在下回合开始时给予[blue]{Guard}[/blue]层护卫。",
+  "RAS_FOR_STS2_RELIC_STONE_DRAGON_ARMOR.flavor": "石龙的鳞片编织成甲，即便破碎，也会在黎明时分重新凝聚。",
+  "RAS_FOR_STS2_RELIC_BEAT_BOOTS.title": "节拍靴",
+  "RAS_FOR_STS2_RELIC_BEAT_BOOTS.description": "每场战斗你第一次切换女王武具时，抽[blue]{Cards}[/blue]张牌，获得[blue]{Guard}[/blue]层护卫。",
+  "RAS_FOR_STS2_RELIC_BEAT_BOOTS.flavor": "踏着古老的节拍，每一次切换都恰到好处。"
+}

@@ -1,0 +1,17 @@
+{
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.aromaPrinciple": "[sine][blue]……月光之下，剑影无声……[/blue][/sine]",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.banter.alive.endTurnPing": "……",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.banter.dead.endTurnPing": "……",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.cardsModifierDescription": "希拉的卡牌现在会出现在奖励和商店中。",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.cardsModifierTitle": "希拉卡牌",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.description": "一位来自月光之境的兔耳少女。\n她手中的[gold]月光大剑[/gold]，比她自己还要沉重。",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.eventDeathPrevention": "还不能……在这里倒下……",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.goldMonologue": "[sine]这些金币……可以用来磨剑……[/sine]",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.possessiveAdjective": "她的",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.pronounObject": "她",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.pronounPossessive": "她的",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.pronounSubject": "她",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.title": "希拉",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.titleObject": "希拉",
+  "RAS_FOR_STS2_CHARACTER_XILA_CHARACTER.unlockText": "用[pink]{Prerequisite}[/pink]进行一局游戏来解锁这个角色。"
+}

@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://cu2u66gfahl5u"]
+
+[ext_resource type="Texture2D" uid="uid://c7re3fadqx7md" path="res://RasForSts2/images/visuals/01.png" id="1_xila"]
+[ext_resource type="Texture2D" uid="uid://ymoktec6djfe" path="res://RasForSts2/images/visuals/02.png" id="2_xila"]
+[ext_resource type="Texture2D" uid="uid://dbgv7sjdcdo32" path="res://RasForSts2/images/visuals/03.png" id="3_xila"]
+[ext_resource type="Texture2D" uid="uid://rykpsuftwhi5" path="res://RasForSts2/images/visuals/04.png" id="4_xila"]
+[ext_resource type="Texture2D" uid="uid://2os75u4krn2w" path="res://RasForSts2/images/visuals/05.png" id="5_xila"]
+[ext_resource type="Texture2D" uid="uid://b55pc3cwrkd38" path="res://RasForSts2/images/visuals/06.png" id="6_xila"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xila"]
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": ExtResource("2_xila")
+}, {
+"duration": 0.2,
+"texture": ExtResource("3_xila")
+}, {
+"duration": 0.2,
+"texture": ExtResource("4_xila")
+}, {
+"duration": 0.2,
+"texture": ExtResource("5_xila")
+}, {
+"duration": 0.2,
+"texture": ExtResource("6_xila")
+}, {
+"duration": 0.2,
+"texture": ExtResource("1_xila")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("6_xila")
+}, {
+"duration": 0.5,
+"texture": ExtResource("1_xila")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xila")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.0
+}]
+
+[node name="Xila" type="Node2D"]
+
+[node name="Visuals" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+position = Vector2(-2, -112)
+scale = Vector2(0.5555556, 0.5555556)
+sprite_frames = SubResource("SpriteFrames_xila")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -121.0
+offset_top = -277.0
+offset_right = 121.0
+offset_bottom = 3.0
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -165)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(20, -351)
+
+[node name="TalkPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -280)
