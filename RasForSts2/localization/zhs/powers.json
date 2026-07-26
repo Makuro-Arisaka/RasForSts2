@@ -20,5 +20,9 @@
   "RAS_FOR_STS2_POWER_QUEEN_AXE_POWER.title": "原初的战吼声",
   "RAS_FOR_STS2_POWER_QUEEN_AXE_POWER.description": "本回合内打出的攻击牌造成的伤害翻倍。",
   "TEMPORARY_STRENGTH_POWER.description": "回合结束时，失去 {Amount} 点 [gold]力量[/gold]。",
-  "TEMPORARY_STRENGTH_DOWN.description": "回合结束时，恢复 {Amount} 点 [gold]力量[/gold]。"
+  "TEMPORARY_STRENGTH_DOWN.description": "回合结束时，恢复 {Amount} 点 [gold]力量[/gold]。",
+  "RAS_FOR_STS2_POWER_GOLD_TOUCH_POWER.title": "点金",
+  "RAS_FOR_STS2_POWER_GOLD_TOUCH_POWER.description": "本场战斗胜利奖励中，额外获得金币奖励数量的100%金币。",
+  "RAS_FOR_STS2_POWER_JADE_RABBIT_MOCHI_POWER.title": "玉兔软年糕",
+  "RAS_FOR_STS2_POWER_JADE_RABBIT_MOCHI_POWER.description": "女王武具power可以叠加，女王武具卡牌获得保留。"
 }

@@ -64,12 +64,27 @@ public sealed class HeroDeterminationPower : ModPowerTemplate
             GuardPower? guardPower = Owner.GetPower<GuardPower>();
             decimal bonusDamage = guardPower?.GuardAmount ?? 0m;
 
-            if (bonusDamage > 0 && cardPlay.Target != null)
+            if (bonusDamage > 0)
             {
-                await DamageCmd.Attack(bonusDamage)
-                    .FromCard(cardPlay.Card, cardPlay)
-                    .Targeting(cardPlay.Target)
-                    .Execute(choiceContext);
+                if (cardPlay.Card.TargetType == TargetType.AllEnemies)
+                {
+                    // 全体攻击：对所有敌人造成额外伤害
+                    if (Owner.CombatState != null)
+                    {
+                        await DamageCmd.Attack(bonusDamage)
+                            .FromCard(cardPlay.Card, cardPlay)
+                            .TargetingAllOpponents(Owner.CombatState)
+                            .Execute(choiceContext);
+                    }
+                }
+                else if (cardPlay.Target != null)
+                {
+                    // 单体攻击：只对目标造成额外伤害
+                    await DamageCmd.Attack(bonusDamage)
+                        .FromCard(cardPlay.Card, cardPlay)
+                        .Targeting(cardPlay.Target)
+                        .Execute(choiceContext);
+                }
             }
         }
     }

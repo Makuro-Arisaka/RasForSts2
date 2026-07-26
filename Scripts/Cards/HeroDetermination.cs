@@ -30,14 +30,13 @@ public class HeroDetermination : ModCardTemplate
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await PowerCmd.Apply<HeroDeterminationPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
-        await CardCmd.Exhaust(choiceContext, this);
     }
 
     protected override void OnUpgrade() { }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => Array.Empty<CardKeyword>();
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         HoverTipFactory.FromPower<GuardPower>(),

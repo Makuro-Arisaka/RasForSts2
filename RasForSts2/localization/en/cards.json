@@ -74,5 +74,11 @@
   "RAS_FOR_STS2_CARD_RARE_POWER_PLACEHOLDER1.title": "Placeholder Card (Rare Power)",
   "RAS_FOR_STS2_CARD_RARE_POWER_PLACEHOLDER1.description": "TBD.",
   "RAS_FOR_STS2_CARD_ANCIENT_POWER_PLACEHOLDER1.title": "Placeholder Card (Ancient Power)",
-  "RAS_FOR_STS2_CARD_ANCIENT_POWER_PLACEHOLDER1.description": "TBD."
+  "RAS_FOR_STS2_CARD_ANCIENT_POWER_PLACEHOLDER1.description": "TBD.",
+  "RAS_FOR_STS2_CARD_ASA_RAINBOW_GEM.title": "Asa's Rainbow Gem",
+  "RAS_FOR_STS2_CARD_ASA_RAINBOW_GEM.description": "Choose 1 Attack card from {Cards} cards of other characters{IfUpgraded:show:[green] (upgraded)[/green]} and add it to your hand.\\nThis card costs 0 for the rest of combat.",
+  "RAS_FOR_STS2_CARD_FARRAH_HELL_ASH.title": "Farrah's Hell Ash",
+  "RAS_FOR_STS2_CARD_FARRAH_HELL_ASH.description": "Whenever a card is Exhausted, gain {Guard:diff()} [gold]Guard[/gold].",
+  "RAS_FOR_STS2_CARD_MEL_THORN_FERN.title": "Mel's Thorn Fern",
+  "RAS_FOR_STS2_CARD_MEL_THORN_FERN.description": "Deal {Damage:diff()} damage to all enemies. Apply [gold]Doom[/gold] and [gold]Poison[/gold] equal to the damage dealt."
 }

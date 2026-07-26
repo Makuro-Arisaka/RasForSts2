@@ -43,7 +43,7 @@ public class KnifeStorm : XilaCardModel
         for (int i = 0; i < 3; i++)
         {
             var shiv = combatState.CreateCard<Shiv>(Owner);
-            CardCmd.Enchant(adroitEnchantment.ToMutable(), shiv, 5m);
+            CardCmd.Enchant(adroitEnchantment.ToMutable(), shiv, 2m);
             if (IsUpgraded) CardCmd.Upgrade(shiv);
             shivs.Add(shiv);
         }

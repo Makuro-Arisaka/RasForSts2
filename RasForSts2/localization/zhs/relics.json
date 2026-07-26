@@ -19,5 +19,8 @@
   "RAS_FOR_STS2_RELIC_STONE_DRAGON_ARMOR.flavor": "石龙的鳞片编织成甲，即便破碎，也会在黎明时分重新凝聚。",
   "RAS_FOR_STS2_RELIC_BEAT_BOOTS.title": "节拍靴",
   "RAS_FOR_STS2_RELIC_BEAT_BOOTS.description": "每场战斗你第一次切换女王武具时，抽[blue]{Cards}[/blue]张牌，获得[blue]{Guard}[/blue]层护卫。",
-  "RAS_FOR_STS2_RELIC_BEAT_BOOTS.flavor": "踏着古老的节拍，每一次切换都恰到好处。"
+  "RAS_FOR_STS2_RELIC_BEAT_BOOTS.flavor": "踏着古老的节拍，每一次切换都恰到好处。",
+  "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.title": "彩虹披风",
+  "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.description": "选择已有的遗物，再次获得一个。",
+  "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.flavor": "七彩流转的披风映照出你一路的收获，也赋予你重温它们的力量。"
 }

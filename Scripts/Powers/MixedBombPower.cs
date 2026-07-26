@@ -1,14 +1,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HarmonyLib;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -27,6 +25,7 @@ public sealed class MixedBombPower : ModPowerTemplate
 
     protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
 
+    // spec: 回合开始时对所有敌人造成5（8）点伤害
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player == Owner.Player)
@@ -38,61 +37,47 @@ public sealed class MixedBombPower : ModPowerTemplate
         }
     }
 
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    // spec: 每当你给予一个敌人负面状态时，使其受到5（8）点伤害
+    // 参考原版 SleightOfFleshPower 的实现，使用原生 AfterPowerAmountChanged 方法
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
-        await base.AfterApplied(applier, cardSource);
-        MixedBombTracker.TrackPower(this);
-    }
+        var target = power.Owner;
+        Log.Info($"[MixedBomb] 触发检查: power={power.GetType().Name}, amount={amount}, " +
+                 $"target={target.LogName}(CombatId={target.CombatId}), " +
+                 $"applier={(applier == null ? "null" : applier.LogName)}, " +
+                 $"owner={Owner.LogName}, cardSource={(cardSource == null ? "null" : cardSource.Id)}");
 
-    public override async Task AfterRemoved(Creature oldOwner)
-    {
-        await base.AfterRemoved(oldOwner);
-        MixedBombTracker.UntrackPower(this);
-    }
-}
-
-public static class MixedBombTracker
-{
-    private static readonly HashSet<MixedBombPower> _activePowers = new();
-
-    public static void TrackPower(MixedBombPower power)
-    {
-        _activePowers.Add(power);
-        EnsureHookInstalled();
-    }
-
-    public static void UntrackPower(MixedBombPower power)
-    {
-        _activePowers.Remove(power);
-    }
-
-    private static bool _hookInstalled = false;
-
-    private static void EnsureHookInstalled()
-    {
-        if (_hookInstalled) return;
-        _hookInstalled = true;
-
-        var harmony = new Harmony("RasForSts2.MixedBomb");
-        harmony.Patch(
-            original: AccessTools.Method(typeof(Hook), nameof(Hook.AfterPowerAmountChanged)),
-            postfix: new HarmonyMethod(typeof(MixedBombTracker), nameof(OnPowerAmountChanged))
-        );
-    }
-
-    public static async void OnPowerAmountChanged(CombatState combatState, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
-    {
-        if (amount == 0m) return;
-        if (power.GetTypeForAmount(amount) != PowerType.Debuff) return;
-        if (!power.Owner.IsEnemy) return;
-        if (applier == null) return;
-        if (power is ITemporaryPower) return;
-
-        foreach (var bombPower in _activePowers)
+        if (amount == 0m)
         {
-            if (bombPower.Owner != applier) continue;
-
-            await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), power.Owner, bombPower.Amount, ValueProp.Unpowered, applier);
+            Log.Debug($"[MixedBomb] 跳过: amount == 0 (target={target.LogName})");
+            return;
         }
+        if (power.GetTypeForAmount(amount) != PowerType.Debuff)
+        {
+            Log.Debug($"[MixedBomb] 跳过: power 类型不是 Debuff " +
+                      $"(power={power.GetType().Name}, actualType={power.GetTypeForAmount(amount)}, target={target.LogName})");
+            return;
+        }
+        if (!target.IsEnemy)
+        {
+            Log.Debug($"[MixedBomb] 跳过: target 不是敌人 (target={target.LogName})");
+            return;
+        }
+        if (applier != Owner)
+        {
+            Log.Debug($"[MixedBomb] 跳过: applier != Owner " +
+                      $"(applier={(applier == null ? "null" : applier.LogName)}, owner={Owner.LogName})");
+            return;
+        }
+        if (power is ITemporaryPower)
+        {
+            Log.Debug($"[MixedBomb] 跳过: power 是 ITemporaryPower (power={power.GetType().Name}, target={target.LogName})");
+            return;
+        }
+
+        Log.Info($"[MixedBomb] 命中: 对 {target.LogName}(CombatId={target.CombatId}) " +
+                 $"造成 {Amount} 点伤害 (power={power.GetType().Name}, amount={amount})");
+        Flash();
+        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, Amount, ValueProp.Unpowered, Owner);
     }
 }

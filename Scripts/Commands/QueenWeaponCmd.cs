@@ -74,10 +74,19 @@ public static class QueenWeaponCmd
     /// <summary>
     /// Remove all existing Queen Weapon powers from the player before applying a new one.
     /// Per spec: 打出女王武具牌时,先移除当前的女王武具Power,再获得打出的女王武具牌对应的女王武具Power
+    /// 例外：若玩家身上有 JadeRabbitMochiPower（玉兔软年糕），则跳过移除，允许多武具共存。
     /// </summary>
     public static async Task RemoveExistingWeaponPowers(Player player)
     {
         Creature creature = player.Creature;
+
+        // 玉兔软年糕：多武具共存，不移除旧武具
+        if (creature.HasPower<JadeRabbitMochiPower>())
+        {
+            Log.Info($"[QueenWeaponCmd] JadeRabbitMochiPower active — skipping weapon removal (multi-weapon coexistence)");
+            return;
+        }
+
         Log.Info($"[QueenWeaponCmd] Removing existing Queen Weapon powers from {creature.Name}");
         await PowerCmd.Remove<MoonlightGreatswordPower>(creature);
         await PowerCmd.Remove<MoonlightShieldPower>(creature);

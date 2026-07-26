@@ -20,5 +20,9 @@
   "RAS_FOR_STS2_POWER_QUEEN_AXE_POWER.title": "Primeval Battlecry",
   "RAS_FOR_STS2_POWER_QUEEN_AXE_POWER.description": "Attack cards you play this turn deal double damage.",
   "TEMPORARY_STRENGTH_POWER.description": "At the end of your turn, lose {Amount} [gold]Strength[/gold].",
-  "TEMPORARY_STRENGTH_DOWN.description": "At the end of your turn, recover {Amount} [gold]Strength[/gold]."
+  "TEMPORARY_STRENGTH_DOWN.description": "At the end of your turn, recover {Amount} [gold]Strength[/gold].",
+  "RAS_FOR_STS2_POWER_GOLD_TOUCH_POWER.title": "Gold Touch",
+  "RAS_FOR_STS2_POWER_GOLD_TOUCH_POWER.description": "In this combat's victory rewards, gain additional gold equal to 100% of the gold reward.",
+  "RAS_FOR_STS2_POWER_JADE_RABBIT_MOCHI_POWER.title": "Jade Rabbit Mochi",
+  "RAS_FOR_STS2_POWER_JADE_RABBIT_MOCHI_POWER.description": "Queen Weapon powers can stack, and Queen Weapon cards gain Retain."
 }

@@ -1,0 +1,8 @@
+{
+  "RAS_FOR_STS2_POTION_GOLD_TOUCH_POTION.title": "Gold-Touch Potion",
+  "RAS_FOR_STS2_POTION_GOLD_TOUCH_POTION.description": "In this combat's victory rewards, gain additional gold equal to 100% of the gold reward.",
+  "RAS_FOR_STS2_POTION_QUEEN_CURSE_POTION.title": "Queen's Curse",
+  "RAS_FOR_STS2_POTION_QUEEN_CURSE_POTION.description": "Remove 1 [gold]Artifact[/gold] from an enemy, and apply 1 [gold]Vulnerable[/gold], 1 [gold]Weak[/gold], 1 [gold]Poison[/gold], and 1 [gold]Doom[/gold].",
+  "RAS_FOR_STS2_POTION_JADE_RABBIT_MOCHI_POTION.title": "Jade Rabbit Mochi",
+  "RAS_FOR_STS2_POTION_JADE_RABBIT_MOCHI_POTION.description": "In this combat, [gold]Queen Weapon[/gold] powers can stack, and all [gold]Queen Weapon[/gold] cards in your deck gain [gold]Retain[/gold]."
+}

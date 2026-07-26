@@ -19,5 +19,8 @@
   "RAS_FOR_STS2_RELIC_STONE_DRAGON_ARMOR.flavor": "Woven from stone dragon scales, even shattered, it reforms at dawn.",
   "RAS_FOR_STS2_RELIC_BEAT_BOOTS.title": "Beat Boots",
   "RAS_FOR_STS2_RELIC_BEAT_BOOTS.description": "The first time you switch Queen Weapon each combat, draw [blue]{Cards}[/blue] card(s) and gain [blue]{Guard}[/blue] Guard.",
-  "RAS_FOR_STS2_RELIC_BEAT_BOOTS.flavor": "Treading to an ancient rhythm, every switch is perfectly timed."
+  "RAS_FOR_STS2_RELIC_BEAT_BOOTS.flavor": "Treading to an ancient rhythm, every switch is perfectly timed.",
+  "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.title": "Rainbow Cloak",
+  "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.description": "Choose a relic you own, and gain another copy of it.",
+  "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.flavor": "The iridescent cloak reflects all you have gathered, granting the power to relive them."
 }

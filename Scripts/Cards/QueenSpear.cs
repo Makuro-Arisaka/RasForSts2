@@ -47,6 +47,8 @@ public class QueenSpear : XilaCardModel
         
         await PowerCmd.Apply<VulnerablePower>(choiceContext, cardPlay.Target, DynamicVars["VulnerablePower"].BaseValue, Owner.Creature, this);
         await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target, DynamicVars["WeakPower"].BaseValue, Owner.Creature, this);
+
+        await CardCmd.Exhaust(choiceContext, this);
     }
 
     protected override void OnUpgrade()
@@ -56,7 +58,7 @@ public class QueenSpear : XilaCardModel
         DynamicVars["WeakPower"].UpgradeValueBy(1m);
     }
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         HoverTipFactory.Static(StaticHoverTip.Block),
