@@ -21,7 +21,7 @@ public sealed class MixedBombPower : ModPowerTemplate
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/MixedBombPower.png");
+    public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/MixedBombPower.png", BigIconPath: "res://RasForSts2/images/powers/MixedBombPower.png");
 
     protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
 

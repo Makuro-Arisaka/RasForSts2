@@ -15,6 +15,7 @@ CARD_TO_POWER_MAP = {
     "CurseReveal": "CurseRevealPower",
     "MixedBomb": "MixedBombPower",
     "AgileStep": "AgileStepPower",
+    "WindFist": "WindFistPower",
 }
 
 

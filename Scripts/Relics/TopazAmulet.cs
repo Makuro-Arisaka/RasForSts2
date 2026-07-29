@@ -26,7 +26,7 @@ namespace RasForSts2.Scripts.Relics;
 /// 在战斗结束时，如果你没有受到伤害，则你的卡牌奖励额外包含一张卡牌。并额外掉落5金币。
 /// 监听"未受到伤害"参考 LavaLamp，"额外卡牌奖励"参考 LastingCandy，"额外金币"参考 AmethystAubergine。
 /// </summary>
-[RegisterRelic(typeof(XilaRelicPool))]
+[RegisterRelic(typeof(GenericRelicPool))]
 public class TopazAmulet : ModRelicTemplate
 {
     private bool _tookDamageThisCombat;

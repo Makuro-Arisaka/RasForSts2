@@ -23,5 +23,11 @@ public class Entry
         var assembly = Assembly.GetExecutingAssembly();
         RitsuLibFramework.EnsureGodotScriptsRegistered(assembly, Logger);
         ModTypeDiscoveryHub.RegisterModAssembly(ModId, assembly);
+
+        var i18n = RitsuLibFramework.CreateModLocalization(
+            ModId,
+            ModId,
+            pckFolders: ["res://RasForSts2/localization"]);
+        RitsuLibFramework.RegisterI18NLocTableBridge(ModId, i18n);
     }
 }

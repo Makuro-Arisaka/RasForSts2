@@ -1,8 +1,8 @@
 {
   "RAS_FOR_STS2_POTION_GOLD_TOUCH_POTION.title": "点金药水",
-  "RAS_FOR_STS2_POTION_GOLD_TOUCH_POTION.description": "本场战斗胜利奖励中，额外获得金币奖励数量的100%金币。",
+  "RAS_FOR_STS2_POTION_GOLD_TOUCH_POTION.description": "本场战斗胜利奖励中，额外获得金币奖励的[gold]金币[/gold]。",
   "RAS_FOR_STS2_POTION_QUEEN_CURSE_POTION.title": "女王邪咒",
   "RAS_FOR_STS2_POTION_QUEEN_CURSE_POTION.description": "去除一名敌人的[gold]人工制品[/gold]，并给予1层[gold]易伤[/gold]、1层[gold]虚弱[/gold]、1层[gold]中毒[/gold]、1层[gold]灾厄[/gold]。",
   "RAS_FOR_STS2_POTION_JADE_RABBIT_MOCHI_POTION.title": "玉兔软年糕",
-  "RAS_FOR_STS2_POTION_JADE_RABBIT_MOCHI_POTION.description": "在本场战斗中，[gold]女王武具[/gold]power可以叠加，卡组中所有[gold]女王武具[/gold]卡牌获得保留。"
+  "RAS_FOR_STS2_POTION_JADE_RABBIT_MOCHI_POTION.description": "在本场战斗中，[gold]女王武具[/gold]可以叠加，卡组中所有[gold]女王武具[/gold]卡牌获得保留。"
 }

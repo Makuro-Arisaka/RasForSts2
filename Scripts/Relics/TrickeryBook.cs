@@ -13,7 +13,7 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace RasForSts2.Scripts.Relics;
 
-[RegisterRelic(typeof(XilaRelicPool))]
+[RegisterRelic(typeof(GenericRelicPool))]
 public class TrickeryBook : ModRelicTemplate
 {
     public override RelicRarity Rarity => RelicRarity.Rare;

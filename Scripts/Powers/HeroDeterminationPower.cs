@@ -25,9 +25,11 @@ public sealed class HeroDeterminationPower : ModPowerTemplate
 
     public override PowerStackType StackType => PowerStackType.Single;
 
-    public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/HeroDeterminationPower.png");
+    public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/HeroDeterminationPower.png", BigIconPath: "res://RasForSts2/images/powers/HeroDeterminationPower.png");
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new("Guard", GetInternalData<Data>().isUpgraded ? 15m : 10m)
+    ];
 
     protected override object InitInternalData()
     {

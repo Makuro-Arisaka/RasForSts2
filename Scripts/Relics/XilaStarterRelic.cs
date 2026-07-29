@@ -20,7 +20,7 @@ namespace RasForSts2.Scripts.Relics;
 [RegisterCharacterStarterRelic(typeof(XilaCharacter))]
 public class XilaStarterRelic : ModRelicTemplate
 {
-	private bool _hasPlayedQueenWeaponThisTurn;
+	private bool _hasPlayedQueenWeaponThisCombat;
 
 	private static readonly HashSet<string> QueenWeaponCardIds = new()
 	{
@@ -38,30 +38,35 @@ public class XilaStarterRelic : ModRelicTemplate
 		BigIconPath: $"res://RasForSts2/images/relics/{GetType().Name}.png"
 	);
 
-	public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
+	protected override IEnumerable<DynamicVar> CanonicalVars => new[]
 	{
-		_hasPlayedQueenWeaponThisTurn = false;
-		Log.Info($"[XilaStarterRelic] AfterPlayerTurnStartEarly for {player.Creature.Name}, round={player.Creature.CombatState?.RoundNumber ?? 0}");
-		
-		var guardPower = player.Creature.GetPower<GuardPower>();
-		if (guardPower == null)
+		new EnergyVar(1),
+		new DynamicVar("Guard", 1m)
+	};
+
+	public override Task BeforeCombatStart()
+	{
+		_hasPlayedQueenWeaponThisCombat = false;
+		Log.Info($"[XilaStarterRelic] BeforeCombatStart: reset per-combat flag");
+		return Task.CompletedTask;
+	}
+
+	public override async Task BeforeCombatStartLate()
+	{
+		Player? player = base.Owner;
+		if (player == null)
 		{
-			Log.Info($"[XilaStarterRelic] GuardPower not found, applying 1");
-			await PowerCmd.Apply<GuardPower>(choiceContext, player.Creature, 1m, player.Creature, null);
+			Log.Info($"[XilaStarterRelic] BeforeCombatStartLate: player is null, skipping");
+			return;
 		}
-		else
-		{
-			Log.Info($"[XilaStarterRelic] GuardPower exists with amount={guardPower.GuardAmount}, adding 1");
-			await PowerCmd.ModifyAmount(null, guardPower, 1m, null, null);
-		}
-		
-		guardPower = player.Creature.GetPower<GuardPower>();
-		Log.Info($"[XilaStarterRelic] GuardPower after operation: {guardPower?.GuardAmount ?? 0}");
+
+		Log.Info($"[XilaStarterRelic] BeforeCombatStartLate: applying 1 guard");
+		await PowerCmd.Apply<GuardPower>(null, player.Creature, 1m, player.Creature, null);
 	}
 
 	public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 	{
-		if (_hasPlayedQueenWeaponThisTurn)
+		if (_hasPlayedQueenWeaponThisCombat)
 		{
 			return;
 		}
@@ -69,7 +74,8 @@ public class XilaStarterRelic : ModRelicTemplate
 		string cardId = cardPlay.Card.Id.Entry;
 		if (QueenWeaponCardIds.Contains(cardId))
 		{
-			_hasPlayedQueenWeaponThisTurn = true;
+			_hasPlayedQueenWeaponThisCombat = true;
+			Log.Info($"[XilaStarterRelic] First queen weapon card played this combat: {cardId}, gaining 1 energy");
 			await PlayerCmd.GainEnergy(1m, cardPlay.Card.Owner);
 		}
 	}

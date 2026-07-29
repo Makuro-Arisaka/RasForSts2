@@ -14,7 +14,7 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace RasForSts2.Scripts.Cards;
 
-[RegisterCharacterStarterCard(typeof(XilaCharacter), 1)]
+[RegisterCharacterStarterCard(typeof(XilaCharacter), 1, Order = 3)]
 public class MoonlightGreatsword : XilaCardModel
 {
 	private const int energyCost = 1;
@@ -53,6 +53,5 @@ public class MoonlightGreatsword : XilaCardModel
 	protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
 		QueenWeaponHoverTip.Create(),
 		HoverTipFactory.FromPower<GuardPower>(),
-		HoverTipFactory.FromPower<MoonlightGreatswordPower>(),
 	];
 }

@@ -20,7 +20,7 @@ public class MoonlightStaff : XilaCardModel
 {
 	private const int energyCost = 1;
 	private const CardType type = CardType.Skill;
-	private const CardRarity rarity = CardRarity.Rare;
+	private const CardRarity rarity = CardRarity.Uncommon;
 	private const TargetType targetType = TargetType.Self;
 	private const bool shouldShowInCardLibrary = true;
 
@@ -51,7 +51,6 @@ public class MoonlightStaff : XilaCardModel
 	protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
 		QueenWeaponHoverTip.Create(),
 		HoverTipFactory.FromPower<GuardPower>(),
-		HoverTipFactory.FromPower<MoonlightStaffPower>(),
 		HoverTipFactory.FromPower<WeakPower>(),
 		HoverTipFactory.FromPower<VulnerablePower>(),
 	];

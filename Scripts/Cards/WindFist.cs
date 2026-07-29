@@ -50,7 +50,5 @@ public class WindFist : XilaCardModel
 
     protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag>();
 
-    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-        HoverTipFactory.FromPower<WindFistPower>(),
-    ];
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [];
 }

@@ -14,10 +14,10 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace RasForSts2.Scripts.Relics;
 
-[RegisterRelic(typeof(XilaRelicPool))]
+[RegisterRelic(typeof(GenericRelicPool))]
 public class RainbowCloak : ModRelicTemplate
 {
-    public override RelicRarity Rarity => RelicRarity.Rare;
+    public override RelicRarity Rarity => RelicRarity.Uncommon;
 
     public override RelicAssetProfile AssetProfile => new(
         IconPath: $"res://RasForSts2/images/relics/{GetType().Name}.png",

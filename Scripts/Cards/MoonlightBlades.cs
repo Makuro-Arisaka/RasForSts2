@@ -50,6 +50,5 @@ public class MoonlightBlades : XilaCardModel
 	protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
 		QueenWeaponHoverTip.Create(),
 		HoverTipFactory.FromPower<GuardPower>(),
-		HoverTipFactory.FromPower<MoonlightBladesPower>(),
 	];
 }

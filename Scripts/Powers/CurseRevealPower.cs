@@ -35,9 +35,11 @@ public sealed class CurseRevealPower : ModPowerTemplate
 
     public override PowerStackType StackType => PowerStackType.Single;
 
-    public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/CurseRevealPower.png");
+    public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/CurseRevealPower.png", BigIconPath: "res://RasForSts2/images/powers/CurseRevealPower.png");
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new("Draw", GetInternalData<Data>().drawAmount == 0 ? 1 : GetInternalData<Data>().drawAmount)
+    ];
 
     protected override object InitInternalData()
     {

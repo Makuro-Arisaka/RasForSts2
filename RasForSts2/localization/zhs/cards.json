@@ -62,7 +62,7 @@
   "RAS_FOR_STS2_CARD_HERO_DETERMINATION.title": "英雄决意",
   "RAS_FOR_STS2_CARD_HERO_DETERMINATION.description": "每回合开始时获得{IfUpgraded:show:[green]15[/green]|10}点[gold]护卫[/gold]\\n当你打出[gold]攻击牌[/gold]时，额外造成当前[gold]护卫值[/gold]的伤害。",
   "RAS_FOR_STS2_CARD_CURSE_REVEAL.title": "邪咒再显",
-  "RAS_FOR_STS2_CARD_CURSE_REVEAL.description": "获得999层[gold]灾厄[/gold]\\n将你的[gold]能量[/gold]恢复至上限，获得所有{IfUpgraded:show:[green]女王武具+[/green]|女王武具}的效果。",
+  "RAS_FOR_STS2_CARD_CURSE_REVEAL.description": "获得999层[gold]灾厄[/gold]\\n将你的[gold]能量[/gold]恢复至上限，获得所有{IfUpgraded:show:[green]女王武具+[/green]|女王武具}的正面效果。",
   "RAS_FOR_STS2_CARD_UNCOMMON_ATTACK_PLACEHOLDER1.title": "占位卡（罕见攻击）",
   "RAS_FOR_STS2_CARD_UNCOMMON_ATTACK_PLACEHOLDER1.description": "待开发。",
   "RAS_FOR_STS2_CARD_UNCOMMON_SKILL_PLACEHOLDER1.title": "占位卡（罕见技能）",

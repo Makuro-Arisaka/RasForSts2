@@ -16,11 +16,8 @@ namespace RasForSts2.Scripts.Powers;
 public sealed class MoonlightStaffPower : ModPowerTemplate
 {
 	public override PowerType Type => PowerType.Buff;
-
 	public override PowerStackType StackType => PowerStackType.Single;
-
-	public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/MoonlightStaffPower.png");
-
+	public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/MoonlightStaffPower.png", BigIconPath: "res://RasForSts2/images/powers/MoonlightStaffPower.png");
 	protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
 }
 
@@ -30,23 +27,18 @@ public sealed class MoonlightStaffPower : ModPowerTemplate
 /// 公式: new = 2 * old - 1
 /// 仅当玩家(拥有月光法杖)被敌人(带有虚弱)攻击时生效
 /// </summary>
-[HarmonyPatch(typeof(AbstractModel), nameof(AbstractModel.ModifyDamageMultiplicative))]
+[HarmonyPatch(typeof(WeakPower), nameof(WeakPower.ModifyDamageMultiplicative))]
 public static class MoonlightStaffWeakPatch
 {
-	public static void Postfix(AbstractModel __instance, ref decimal __result, Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+	public static void Postfix(WeakPower __instance, ref decimal __result, Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
 	{
-		if (__instance is not WeakPower weakPower)
-		{
-			return;
-		}
-
 		if (!props.IsPoweredAttack())
 		{
 			return;
 		}
 
-		// WeakPower 仅在 dealer == Owner 时返回非 1.0 的乘数
-		if (dealer != weakPower.Owner)
+		// 只有当 dealer(敌人, 虚弱的拥有者) 攻击 target(玩家) 时才生效
+		if (dealer != __instance.Owner)
 		{
 			return;
 		}
@@ -73,23 +65,18 @@ public static class MoonlightStaffWeakPatch
 /// 公式: new = 2 * old - 1
 /// 仅当玩家(拥有月光法杖)攻击敌人(带有易伤)时生效
 /// </summary>
-[HarmonyPatch(typeof(AbstractModel), nameof(AbstractModel.ModifyDamageMultiplicative))]
+[HarmonyPatch(typeof(VulnerablePower), nameof(VulnerablePower.ModifyDamageMultiplicative))]
 public static class MoonlightStaffVulnerablePatch
 {
-	public static void Postfix(AbstractModel __instance, ref decimal __result, Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+	public static void Postfix(VulnerablePower __instance, ref decimal __result, Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
 	{
-		if (__instance is not VulnerablePower vulnerablePower)
-		{
-			return;
-		}
-
 		if (!props.IsPoweredAttack())
 		{
 			return;
 		}
 
-		// VulnerablePower 仅在 target == Owner 时返回非 1.0 的乘数
-		if (target != vulnerablePower.Owner)
+		// 只有当 dealer(玩家, 攻击者) 攻击 target(敌人, 易伤的拥有者) 时才生效
+		if (target != __instance.Owner)
 		{
 			return;
 		}

@@ -22,7 +22,7 @@ public sealed class MoonlightShieldPower : ModPowerTemplate
 
 	public override PowerStackType StackType => PowerStackType.Single;
 
-	public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/MoonlightShieldPower.png");
+	public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/MoonlightShieldPower.png", BigIconPath: "res://RasForSts2/images/powers/MoonlightShieldPower.png");
 
 	protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
 }

@@ -28,7 +28,8 @@ public sealed class GuardPower : ModPowerTemplate
 	public override bool AllowNegative => true;
 
 	public override PowerAssetProfile AssetProfile => new(
-		IconPath: $"res://RasForSts2/images/powers/GuardPower.png"
+		IconPath: $"res://RasForSts2/images/powers/GuardPower.png",
+		BigIconPath: $"res://RasForSts2/images/powers/GuardPower.png"
 	);
 
 	protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();

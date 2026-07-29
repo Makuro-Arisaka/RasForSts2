@@ -21,7 +21,7 @@ public sealed class AgileStepPower : ModPowerTemplate
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/AgileStepPower.png");
+    public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/AgileStepPower.png", BigIconPath: "res://RasForSts2/images/powers/AgileStepPower.png");
 
     protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
 

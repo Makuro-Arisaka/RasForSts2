@@ -1,6 +1,6 @@
 {
   "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.title": "Hero's Proof",
-  "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.description": "The first time you play a Queen Weapon card each turn, restore 1 Energy. At the start of each turn, gain 1 [gold]Guard[/gold].",
+  "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.description": "The first time you play a Queen Weapon card each combat, restore {Energy:energyIcons()} Energy. At the start of combat, gain {Guard} [gold]Guard[/gold].",
   "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.flavor": "She's always carried it, even though it's heavier than she is.",
   "RAS_FOR_STS2_RELIC_TOPAZ_AMULET.title": "Topaz Amulet",
   "RAS_FOR_STS2_RELIC_TOPAZ_AMULET.description": "At the end of combat, if you took no damage, your card rewards include an additional card. Also drop [gold]{Gold}[/gold] additional gold.",

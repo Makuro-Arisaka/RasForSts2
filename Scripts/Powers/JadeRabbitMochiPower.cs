@@ -14,7 +14,8 @@ public sealed class JadeRabbitMochiPower : ModPowerTemplate
     public override PowerStackType StackType => PowerStackType.Single;
 
     public override PowerAssetProfile AssetProfile => new(
-        IconPath: "res://RasForSts2/images/potions/JadeRabbitMochiPotion.png"
+        IconPath: "res://RasForSts2/images/potions/JadeRabbitMochiPotion.png",
+        BigIconPath: "res://RasForSts2/images/potions/JadeRabbitMochiPotion.png"
     );
 
     protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();

@@ -14,7 +14,7 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace RasForSts2.Scripts.Potions;
 
-[RegisterPotion(typeof(XilaPotionPool))]
+[RegisterPotion(typeof(GenericPotionPool))]
 public sealed class QueenCursePotion : ModPotionTemplate
 {
     public override PotionRarity Rarity => PotionRarity.Common;

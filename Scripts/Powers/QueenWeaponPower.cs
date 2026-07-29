@@ -14,5 +14,10 @@ public sealed class QueenWeaponPower : ModPowerTemplate
 
     public override PowerStackType StackType => PowerStackType.Single;
 
+    public override PowerAssetProfile AssetProfile => new(
+        IconPath: "res://RasForSts2/images/powers/QueenWeaponPower.png",
+        BigIconPath: "res://RasForSts2/images/powers/QueenWeaponPower.png"
+    );
+
     protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
 }

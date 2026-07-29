@@ -20,7 +20,7 @@ namespace RasForSts2.Scripts.Relics;
 /// 当你的生命值将要降至0或以下时，回复最大生命值的10%，获得200金币。（仅能起效一次）
 /// 监听死亡阻止参考 LizardTail，金币奖励参考 AmethystAubergine。
 /// </summary>
-[RegisterRelic(typeof(XilaRelicPool))]
+[RegisterRelic(typeof(GenericRelicPool))]
 public class RedBooklet : ModRelicTemplate
 {
     private bool _wasUsed;
@@ -58,9 +58,11 @@ public class RedBooklet : ModRelicTemplate
     }
 
     /// <summary>
-    /// 当玩家生命值将要降至0或以下时，返回false阻止死亡（参考 LizardTail）。
+    /// 当玩家生命值将要降至0或以下时，返回false阻止死亡。
+    /// 使用 ShouldDie 而非 ShouldDieLate，确保触发优先级高于瓶中仙（FAIRY_IN_A_BOTTLE）药水。
+    /// （迭代顺序：Powers → Relics → Potions，遗物先于药水被检查）
     /// </summary>
-    public override bool ShouldDieLate(Creature creature)
+    public override bool ShouldDie(Creature creature)
     {
         if (creature != base.Owner.Creature)
         {

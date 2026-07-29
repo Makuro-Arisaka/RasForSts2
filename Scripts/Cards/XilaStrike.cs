@@ -10,7 +10,7 @@ using STS2RitsuLib.Interop.AutoRegistration;
 
 namespace RasForSts2.Scripts.Cards;
 
-[RegisterCharacterStarterCard(typeof(XilaCharacter), 4)]
+[RegisterCharacterStarterCard(typeof(XilaCharacter), 4, Order = 1)]
 public class XilaStrike : XilaCardModel
 {
     private const int energyCost = 1;

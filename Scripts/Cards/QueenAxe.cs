@@ -56,6 +56,5 @@ public class QueenAxe : XilaCardModel
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         HoverTipFactory.FromPower<VulnerablePower>(),
-        HoverTipFactory.FromPower<QueenAxePower>(),
     ];
 }
