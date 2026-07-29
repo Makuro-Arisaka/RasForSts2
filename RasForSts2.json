@@ -1,9 +1,9 @@
 {
   "id": "RasForSts2",
-  "name": "RasForSts2",
-  "author": "114514",
-  "description": "Mod 描述",
-  "version": "0.1.0",
+  "name": "希拉mod",
+  "author": "文墨染心椛 and Makuro_Arisaka",
+  "description": "本mod角色是来自rabbit and steel（兔子与钢铁）弹幕肉鸽团本游戏中的最终boss和主角希拉。作为兔子的英雄，为了扫除邪咒的源头而来到尖塔",
+  "version": "0.9.0",
   "min_game_version": "0.107.1",
   "has_pck": true,
   "has_dll": true,
