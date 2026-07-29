@@ -8,8 +8,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using MegaCrit.Sts2.Core.Nodes.Rooms;
-using MegaCrit.Sts2.Core.Nodes.Vfx;
 using RasForSts2.Scripts.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -33,12 +31,22 @@ public class HeroDetermination : ModCardTemplate
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<HeroDeterminationPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
+        // 如果 Power 已存在，手动叠加效果（PowerStackType.Single 时再次 Apply 不会调 AfterApplied）
+        HeroDeterminationPower? existing = Owner.Creature.GetPower<HeroDeterminationPower>();
+        if (existing != null)
+        {
+            // 再次打出时：按升级状态累加护卫值（10 或 15）
+            int addValue = IsUpgraded ? 15 : 10;
+            existing.AddGuardAmount(addValue);
+        }
+        else
+        {
+            await PowerCmd.Apply<HeroDeterminationPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
+        }
     }
 
     public override async Task OnEnqueuePlayVfx(Creature? target)
     {
-        NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NPowerUpVfx.CreateNormal(Owner.Creature));
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
     }
 

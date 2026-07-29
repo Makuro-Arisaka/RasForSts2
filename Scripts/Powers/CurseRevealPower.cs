@@ -38,7 +38,7 @@ public sealed class CurseRevealPower : ModPowerTemplate
     public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/CurseRevealPower.png", BigIconPath: "res://RasForSts2/images/powers/CurseRevealPower.png");
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new("Draw", GetInternalData<Data>().drawAmount == 0 ? 1 : GetInternalData<Data>().drawAmount)
+        new("Draw", 1)
     ];
 
     protected override object InitInternalData()
@@ -51,6 +51,8 @@ public sealed class CurseRevealPower : ModPowerTemplate
         await base.AfterApplied(applier, cardSource);
         // spec: 抽1(2)张牌（升级后抽2）
         GetInternalData<Data>().drawAmount = cardSource != null && cardSource.IsUpgraded ? 2 : 1;
+        // 在 Power 被施加后，根据卡牌升级状态更新 DynamicVars 中显示的数值
+        DynamicVars["Draw"].BaseValue = GetInternalData<Data>().drawAmount;
     }
 
     // spec: 你每打出1张牌时,抽1(2)张牌

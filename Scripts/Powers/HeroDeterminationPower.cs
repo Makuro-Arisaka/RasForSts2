@@ -18,7 +18,7 @@ public sealed class HeroDeterminationPower : ModPowerTemplate
 {
     private class Data
     {
-        public bool isUpgraded;
+        public int guardAmount;
     }
 
     public override PowerType Type => PowerType.Buff;
@@ -28,7 +28,7 @@ public sealed class HeroDeterminationPower : ModPowerTemplate
     public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/HeroDeterminationPower.png", BigIconPath: "res://RasForSts2/images/powers/HeroDeterminationPower.png");
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new("Guard", GetInternalData<Data>().isUpgraded ? 15m : 10m)
+        new("Guard", 10m)
     ];
 
     protected override object InitInternalData()
@@ -39,10 +39,23 @@ public sealed class HeroDeterminationPower : ModPowerTemplate
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
         await base.AfterApplied(applier, cardSource);
-        GetInternalData<Data>().isUpgraded = cardSource != null && cardSource.IsUpgraded;
+        // 首次应用：根据卡牌升级状态设置初始护卫值
+        int initialAmount = cardSource != null && cardSource.IsUpgraded ? 15 : 10;
+        GetInternalData<Data>().guardAmount = initialAmount;
+        DynamicVars["Guard"].BaseValue = initialAmount;
     }
 
-    // spec: 每回合开始时,获得10(15)点护卫
+    /// <summary>
+    /// Power 已存在时手动叠加：再次打出英雄决意时累加护卫值
+    /// </summary>
+    public void AddGuardAmount(int addValue)
+    {
+        int newAmount = GetInternalData<Data>().guardAmount + addValue;
+        GetInternalData<Data>().guardAmount = newAmount;
+        DynamicVars["Guard"].BaseValue = newAmount;
+    }
+
+    // spec: 每回合开始时,获得guardAmount点护卫
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         await base.AfterPlayerTurnStart(choiceContext, player);
@@ -52,7 +65,7 @@ public sealed class HeroDeterminationPower : ModPowerTemplate
             return;
         }
 
-        decimal guardAmount = GetInternalData<Data>().isUpgraded ? 15m : 10m;
+        decimal guardAmount = GetInternalData<Data>().guardAmount;
         await PowerCmd.Apply<GuardPower>(choiceContext, Owner, guardAmount, Owner, null);
     }
 

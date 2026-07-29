@@ -28,19 +28,21 @@ public sealed class MoonlightBladesPower : ModPowerTemplate
 	public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/MoonlightBladesPower.png", BigIconPath: "res://RasForSts2/images/powers/MoonlightBladesPower.png");
 
 	protected override IEnumerable<DynamicVar> CanonicalVars => [
-		new("Draw", GetInternalData<Data>().drawAmount == 0 ? 1 : GetInternalData<Data>().drawAmount)
-	];
+        new("Draw", 1)
+    ];
 
-	protected override object InitInternalData()
-	{
-		return new Data();
-	}
+    protected override object InitInternalData()
+    {
+        return new Data();
+    }
 
-	public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
-	{
-		await base.AfterApplied(applier, cardSource);
-		GetInternalData<Data>().drawAmount = cardSource != null && cardSource.IsUpgraded ? 2 : 1;
-	}
+    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        await base.AfterApplied(applier, cardSource);
+        GetInternalData<Data>().drawAmount = cardSource != null && cardSource.IsUpgraded ? 2 : 1;
+        // 在 Power 被施加后，根据卡牌升级状态更新 DynamicVars 中显示的数值
+        DynamicVars["Draw"].BaseValue = GetInternalData<Data>().drawAmount;
+    }
 
 	public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 	{
