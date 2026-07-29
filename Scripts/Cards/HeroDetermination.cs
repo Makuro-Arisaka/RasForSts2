@@ -31,18 +31,9 @@ public class HeroDetermination : ModCardTemplate
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // 如果 Power 已存在，手动叠加效果（PowerStackType.Single 时再次 Apply 不会调 AfterApplied）
-        HeroDeterminationPower? existing = Owner.Creature.GetPower<HeroDeterminationPower>();
-        if (existing != null)
-        {
-            // 再次打出时：按升级状态累加护卫值（10 或 15）
-            int addValue = IsUpgraded ? 15 : 10;
-            existing.AddGuardAmount(addValue);
-        }
-        else
-        {
-            await PowerCmd.Apply<HeroDeterminationPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
-        }
+        // 直接用 10/15 作为 amount：Counter 叠加，Amount 即总护卫值
+        int guardValue = IsUpgraded ? 15 : 10;
+        await PowerCmd.Apply<HeroDeterminationPower>(choiceContext, Owner.Creature, guardValue, Owner.Creature, this);
     }
 
     public override async Task OnEnqueuePlayVfx(Creature? target)

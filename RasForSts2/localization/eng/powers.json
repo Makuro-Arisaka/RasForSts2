@@ -14,7 +14,7 @@
   "RAS_FOR_STS2_POWER_QUEEN_HARP_POWER.description": "At the start of each turn, apply 1 [gold]Vulnerable[/gold] and 1 [gold]Weak[/gold] to all enemies, gain 1 [gold]Strength[/gold] and 1 [gold]Dexterity[/gold].",
   "RAS_FOR_STS2_POWER_HERO_DETERMINATION_POWER.title": "Hero Determination",
   "RAS_FOR_STS2_POWER_HERO_DETERMINATION_POWER.description": "At the start of each turn, gain 10 Guard. When you play an Attack card, deal additional damage equal to your current Guard.",
-  "RAS_FOR_STS2_POWER_HERO_DETERMINATION_POWER.smartDescription": "At the start of each turn, gain {Guard} Guard. When you play an Attack card, deal additional damage equal to your current Guard.",
+  "RAS_FOR_STS2_POWER_HERO_DETERMINATION_POWER.smartDescription": "At the start of each turn, gain {Amount} Guard. When you play an Attack card, deal additional damage equal to your current Guard.",
   "RAS_FOR_STS2_POWER_GUARD_POWER.title": "Guard",
   "RAS_FOR_STS2_POWER_GUARD_POWER.description": "At the end of your turn, gain 1 [gold]Block[/gold] for each stack of [gold]Guard[/gold]. Whenever you lose [gold]Block[/gold] gained from [gold]Guard[/gold] due to an enemy attack, lose the corresponding number of [gold]Guard[/gold] stacks.",
   "RAS_FOR_STS2_POWER_CURSE_REVEAL_POWER.title": "Curse Reveal",

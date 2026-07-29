@@ -16,46 +16,15 @@ namespace RasForSts2.Scripts.Powers;
 [RegisterPower]
 public sealed class HeroDeterminationPower : ModPowerTemplate
 {
-    private class Data
-    {
-        public int guardAmount;
-    }
-
     public override PowerType Type => PowerType.Buff;
 
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
     public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/HeroDeterminationPower.png", BigIconPath: "res://RasForSts2/images/powers/HeroDeterminationPower.png");
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new("Guard", 10m)
-    ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
 
-    protected override object InitInternalData()
-    {
-        return new Data();
-    }
-
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        await base.AfterApplied(applier, cardSource);
-        // 首次应用：根据卡牌升级状态设置初始护卫值
-        int initialAmount = cardSource != null && cardSource.IsUpgraded ? 15 : 10;
-        GetInternalData<Data>().guardAmount = initialAmount;
-        DynamicVars["Guard"].BaseValue = initialAmount;
-    }
-
-    /// <summary>
-    /// Power 已存在时手动叠加：再次打出英雄决意时累加护卫值
-    /// </summary>
-    public void AddGuardAmount(int addValue)
-    {
-        int newAmount = GetInternalData<Data>().guardAmount + addValue;
-        GetInternalData<Data>().guardAmount = newAmount;
-        DynamicVars["Guard"].BaseValue = newAmount;
-    }
-
-    // spec: 每回合开始时,获得guardAmount点护卫
+    // spec: 每回合开始时,获得 Amount 点护卫（Amount = 打出牌时累加的护卫值）
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         await base.AfterPlayerTurnStart(choiceContext, player);
@@ -65,8 +34,7 @@ public sealed class HeroDeterminationPower : ModPowerTemplate
             return;
         }
 
-        decimal guardAmount = GetInternalData<Data>().guardAmount;
-        await PowerCmd.Apply<GuardPower>(choiceContext, Owner, guardAmount, Owner, null);
+        await PowerCmd.Apply<GuardPower>(choiceContext, Owner, Amount, Owner, null);
     }
 
     // spec: 当你打出攻击牌时，额外造成 当前护卫值 的伤害

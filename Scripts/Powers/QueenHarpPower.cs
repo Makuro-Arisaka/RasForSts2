@@ -17,7 +17,7 @@ public sealed class QueenHarpPower : ModPowerTemplate
 {
     public override PowerType Type => PowerType.Buff;
 
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
     public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/QueenHarpPower.png", BigIconPath: "res://RasForSts2/images/powers/QueenHarpPower.png");
 
@@ -26,19 +26,21 @@ public sealed class QueenHarpPower : ModPowerTemplate
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         await base.AfterPlayerTurnStart(choiceContext, player);
-        
+
         if (player != Owner.Player)
         {
             return;
         }
-        
+
+        decimal stacks = Amount;
+
         foreach (Creature enemy in Owner.CombatState.HittableEnemies)
         {
-            await PowerCmd.Apply<VulnerablePower>(choiceContext, enemy, 1m, Owner, null);
-            await PowerCmd.Apply<WeakPower>(choiceContext, enemy, 1m, Owner, null);
+            await PowerCmd.Apply<VulnerablePower>(choiceContext, enemy, stacks, Owner, null);
+            await PowerCmd.Apply<WeakPower>(choiceContext, enemy, stacks, Owner, null);
         }
-        
-        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, 1m, Owner, null);
-        await PowerCmd.Apply<DexterityPower>(choiceContext, Owner, 1m, Owner, null);
+
+        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, stacks, Owner, null);
+        await PowerCmd.Apply<DexterityPower>(choiceContext, Owner, stacks, Owner, null);
     }
 }

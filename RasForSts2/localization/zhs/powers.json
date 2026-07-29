@@ -14,7 +14,7 @@
   "RAS_FOR_STS2_POWER_QUEEN_HARP_POWER.description": "你不能再切换[gold]女王武具[/gold]。每回合开始时，给予所有敌人1层[gold]易伤[/gold]和1层[gold]虚弱[/gold]，自身获得1点[gold]力量[/gold]和1点[gold]敏捷[/gold]。",
   "RAS_FOR_STS2_POWER_HERO_DETERMINATION_POWER.title": "英雄决意",
   "RAS_FOR_STS2_POWER_HERO_DETERMINATION_POWER.description": "每回合开始时获得10点[gold]护卫[/gold]。打出攻击牌时，额外造成当前[gold]护卫[/gold]的伤害。",
-  "RAS_FOR_STS2_POWER_HERO_DETERMINATION_POWER.smartDescription": "每回合开始时获得{Guard}点[gold]护卫[/gold]。打出攻击牌时，额外造成当前[gold]护卫[/gold]的伤害。",
+  "RAS_FOR_STS2_POWER_HERO_DETERMINATION_POWER.smartDescription": "每回合开始时获得{Amount}点[gold]护卫[/gold]。打出攻击牌时，额外造成当前[gold]护卫[/gold]的伤害。",
   "RAS_FOR_STS2_POWER_GUARD_POWER.title": "护卫",
   "RAS_FOR_STS2_POWER_GUARD_POWER.description": "回合结束时,每有1层[gold]护卫[/gold],获得1点[gold]格挡[/gold]。每次因敌人的攻击失去[gold]因护卫[/gold]获得的[gold]格挡[/gold]时,失去对应层数的[gold]护卫[/gold]。",
   "RAS_FOR_STS2_POWER_CURSE_REVEAL_POWER.title": "邪咒再显",

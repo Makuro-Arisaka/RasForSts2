@@ -27,15 +27,15 @@ public sealed class GoldTouchPower : ModPowerTemplate
 
     protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
 
-    // spec: 本场战斗结束时，额外获得战斗胜利奖励中金币数量的100%金币
+    // spec: 本场战斗结束时，额外获得战斗胜利奖励中金币数量的100%金币（按层数叠加）
     // 使用 AfterCombatEnd 而非 AfterCombatVictory，因为 AfterCombatVictory 在 powers 被清除之后才触发
     // CombatManager 时序: AfterCombatEnd → player.AfterCombatEnd(清除powers) → AfterCombatVictory
     public override Task AfterCombatEnd(CombatRoom room)
     {
         if (Owner.Player != null)
         {
-            Log.Info($"[GoldTouch] 战斗结束，标记玩家 {Owner.Player.Creature.LogName} 获得金币加成");
-            GoldTouchRewardPatch.MarkPlayerForBonus(Owner.Player);
+            Log.Info($"[GoldTouch] 战斗结束，标记玩家 {Owner.Player.Creature.LogName} 获得金币加成，层数={Amount}");
+            GoldTouchRewardPatch.MarkPlayerForBonus(Owner.Player, Amount);
         }
         return Task.CompletedTask;
     }

@@ -20,7 +20,7 @@ public sealed class QueenAxePower : ModPowerTemplate
 {
     public override PowerType Type => PowerType.Buff;
 
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
     public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/QueenAxePower.png", BigIconPath: "res://RasForSts2/images/powers/QueenAxePower.png");
 
@@ -84,6 +84,7 @@ public static class QueenAxeDamagePatch
             return;
         }
 
-        __result *= 2m;
+        // 每层翻倍（1 层 ×2，2 层 ×4，3 层 ×8...）
+        __result *= (decimal)(1 << power.Amount);
     }
 }
