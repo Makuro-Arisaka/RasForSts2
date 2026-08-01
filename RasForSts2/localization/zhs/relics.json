@@ -1,6 +1,6 @@
 {
   "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.title": "英雄的证明",
-  "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.description": "每场战斗你第一次打出[gold]女王武具[/gold]牌时，回复{Energy:energyIcons()}能量。战斗开始时获得{Guard}点[gold]护卫[/gold]。",
+  "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.description": "每场战斗你第一次打出[gold]女王武具[/gold]牌时，回复{Energy:energyIcons()}。战斗开始时获得{Guard}点[gold]护卫[/gold]。",
   "RAS_FOR_STS2_RELIC_XILA_STARTER_RELIC.flavor": "她一直带着它，即使它比她自己还重。",
   "RAS_FOR_STS2_RELIC_TOPAZ_AMULET.title": "黄玉护符",
   "RAS_FOR_STS2_RELIC_TOPAZ_AMULET.description": "在战斗结束时，如果你没有受到伤害，则你的卡牌奖励额外包含一张卡牌。并额外掉落[gold]{Gold}[/gold]金币。",
@@ -22,5 +22,9 @@
   "RAS_FOR_STS2_RELIC_BEAT_BOOTS.flavor": "踏着古老的节拍，每一次切换都恰到好处。",
   "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.title": "彩虹披风",
   "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.description": "选择已有的[gold]遗物[/gold]，再次获得一个。",
-  "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.flavor": "七彩流转的披风映照出你一路的收获，也赋予你重温它们的力量。"
+  "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.flavor": "七彩流转的披风映照出你一路的收获，也赋予你重温它们的力量。",
+  "RAS_FOR_STS2_RELIC_HERO_AWAKENING.title": "英雄的觉悟",
+  "RAS_FOR_STS2_RELIC_HERO_AWAKENING.description": "战斗开始时，选择1张[gold]女王武具[/gold]加入手牌。每场战斗第一次切换[gold]女王武具[/gold]时，回复{Energy:energyIcons()}。战斗开始时获得{Guard}点[gold]护卫[/gold]。",
+  "RAS_FOR_STS2_RELIC_HERO_AWAKENING.selectionPrompt": "选择一张女王武具加入手牌",
+  "RAS_FOR_STS2_RELIC_HERO_AWAKENING.flavor": "经过无数次的失败，她终于理解了何为英雄。"
 }

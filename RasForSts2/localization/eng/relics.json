@@ -22,5 +22,9 @@
   "RAS_FOR_STS2_RELIC_BEAT_BOOTS.flavor": "Treading to an ancient rhythm, every switch is perfectly timed.",
   "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.title": "Rainbow Cloak",
   "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.description": "Choose a relic you own, and gain another copy of it.",
-  "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.flavor": "The iridescent cloak reflects all you have gathered, granting the power to relive them."
+  "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.flavor": "The iridescent cloak reflects all you have gathered, granting the power to relive them.",
+  "RAS_FOR_STS2_RELIC_HERO_AWAKENING.title": "Hero's Awakening",
+  "RAS_FOR_STS2_RELIC_HERO_AWAKENING.description": "At the start of combat, choose 1 Queen Weapon to add to your hand. The first time you switch Queen Weapon each combat, restore {Energy:energyIcons()} Energy. At the start of combat, gain {Guard} [gold]Guard[/gold].",
+  "RAS_FOR_STS2_RELIC_HERO_AWAKENING.selectionPrompt": "Choose a Queen Weapon to add to your hand",
+  "RAS_FOR_STS2_RELIC_HERO_AWAKENING.flavor": "After countless failures, she finally understood what it means to be a hero."
 }

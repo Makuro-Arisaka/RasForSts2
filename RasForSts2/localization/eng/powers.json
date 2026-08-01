@@ -37,5 +37,11 @@
   "RAS_FOR_STS2_POWER_WIND_FIST_POWER.title": "Wind Fist",
   "RAS_FOR_STS2_POWER_WIND_FIST_POWER.description": "At the end of your turn, lose {Amount} [gold]Strength[/gold].",
   "RAS_FOR_STS2_POWER_SHADOW_WAVE_POWER.title": "Shadow Wave",
-  "RAS_FOR_STS2_POWER_SHADOW_WAVE_POWER.description": "At the end of your turn, lose {Amount} [gold]Dexterity[/gold]."
+  "RAS_FOR_STS2_POWER_SHADOW_WAVE_POWER.description": "At the end of your turn, lose {Amount} [gold]Dexterity[/gold].",
+  "RAS_FOR_STS2_POWER_STEEL_FANG_WOLF_FLASH_POWER.title": "Steel Fang Wolf Flash",
+  "RAS_FOR_STS2_POWER_STEEL_FANG_WOLF_FLASH_POWER.description": "Your next [gold]Attack[/gold] card deals triple damage. Removed after you play an [gold]Attack[/gold] card.",
+  "RAS_FOR_STS2_POWER_KNIGHT_MOUSE_SHIELD_FORMATION_POWER.title": "Knight Mouse Shield Formation",
+  "RAS_FOR_STS2_POWER_KNIGHT_MOUSE_SHIELD_FORMATION_POWER.description": "[gold]Block[/gold] no longer resets at the start of your turn. This effect is lost when your [gold]Guard[/gold] stacks are cleared.",
+  "RAS_FOR_STS2_POWER_STARLIGHT_FROG_DANCE_POWER.title": "Starlight Frog Dance",
+  "RAS_FOR_STS2_POWER_STARLIGHT_FROG_DANCE_POWER.description": "When you inflict a debuff you haven't inflicted before, gain 1 Strength and 1 Dexterity."
 }
