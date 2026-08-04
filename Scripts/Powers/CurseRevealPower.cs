@@ -21,14 +21,14 @@ namespace RasForSts2.Scripts.Powers;
 /// 1. 你打出的攻击牌造成的伤害翻倍
 /// 2. 你打出的技能牌获得的格挡翻倍
 /// 3. 所有敌人身上的虚弱和易伤的效果翻倍
-/// 4. 你每打出1张牌时,抽1(2)张牌
+/// 4. 你每打出2张牌时,抽1张牌
 /// </summary>
 [RegisterPower]
 public sealed class CurseRevealPower : ModPowerTemplate
 {
     private class Data
     {
-        public int drawAmount;
+        public int cardsPlayed;
     }
 
     public override PowerType Type => PowerType.Buff;
@@ -38,6 +38,7 @@ public sealed class CurseRevealPower : ModPowerTemplate
     public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/CurseRevealPower.png", BigIconPath: "res://RasForSts2/images/powers/CurseRevealPower.png");
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new("Count", 2),
         new("Draw", 1)
     ];
 
@@ -49,21 +50,24 @@ public sealed class CurseRevealPower : ModPowerTemplate
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
         await base.AfterApplied(applier, cardSource);
-        // spec: 抽1(2)张牌（升级后抽2）
-        GetInternalData<Data>().drawAmount = cardSource != null && cardSource.IsUpgraded ? 2 : 1;
-        // 在 Power 被施加后，根据卡牌升级状态更新 DynamicVars 中显示的数值
-        DynamicVars["Draw"].BaseValue = GetInternalData<Data>().drawAmount;
+        GetInternalData<Data>().cardsPlayed = 0;
     }
 
-    // spec: 你每打出1张牌时,抽1(2)张牌
+    // spec: 你每打出2张牌时,抽1张牌
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await base.AfterCardPlayed(choiceContext, cardPlay);
 
         if (cardPlay.Card.Owner.Creature == base.Owner)
         {
-            int drawAmount = GetInternalData<Data>().drawAmount;
-            await CardPileCmd.Draw(choiceContext, drawAmount, base.Owner.Player);
+            var data = GetInternalData<Data>();
+            data.cardsPlayed++;
+
+            if (data.cardsPlayed >= 2)
+            {
+                data.cardsPlayed = 0;
+                await CardPileCmd.Draw(choiceContext, 1, base.Owner.Player);
+            }
         }
     }
 }

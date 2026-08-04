@@ -61,6 +61,14 @@ public static class QueenWeaponCmd
         Log.Info($"[QueenWeaponCmd] === SwitchWeapon END ===");
     }
 
+    /// <summary>
+    /// 检查玩家当前是否处于女王武具状态（持有任意一把女王武具Power）。
+    /// </summary>
+    public static bool IsInQueenWeaponState(Player player)
+    {
+        return GetCurrentWeaponPowerType(player) != null;
+    }
+
     private static Type? GetCurrentWeaponPowerType(Player player)
     {
         Creature creature = player.Creature;

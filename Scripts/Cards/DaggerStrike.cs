@@ -18,14 +18,14 @@ namespace RasForSts2.Scripts.Cards;
 [RegisterCard(typeof(XilaCardPool))]
 public class DaggerStrike : XilaCardModel
 {
-    private const int energyCost = 0;
+    private const int energyCost = 1;
     private const CardType type = CardType.Attack;
-    private const CardRarity rarity = CardRarity.Uncommon;
+    private const CardRarity rarity = CardRarity.Common;
     private const TargetType targetType = TargetType.AnyEnemy;
     private const bool shouldShowInCardLibrary = true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(3, ValueProp.Move)
+        new DamageVar(2, ValueProp.Move)
     ];
 
     public DaggerStrike() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
@@ -41,20 +41,19 @@ public class DaggerStrike : XilaCardModel
 
         var combatState = (CombatState)CombatState;
         
-        var shiv = await Shiv.CreateInHand(Owner, combatState);
-        if (shiv != null && IsUpgraded) CardCmd.Upgrade(shiv);
+        await Shiv.CreateInHand(Owner, combatState);
 
         var pellet = combatState.CreateCard<Pellet>(Owner);
-        if (IsUpgraded) CardCmd.Upgrade(pellet);
         await CardPileCmd.Add(pellet, PileType.Hand);
     }
 
     protected override void OnUpgrade()
     {
+        DynamicVars.Damage.UpgradeValueBy(3m);
     }
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-        HoverTipFactory.FromCard<Shiv>(IsUpgraded),
-        HoverTipFactory.FromCard<Pellet>(IsUpgraded),
+        HoverTipFactory.FromCard<Shiv>(false),
+        HoverTipFactory.FromCard<Pellet>(false),
     ];
 }

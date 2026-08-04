@@ -3,6 +3,7 @@ using Godot.Bridge;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
+using RasForSts2.Scripts.Resources;
 using STS2RitsuLib;
 using STS2RitsuLib.Interop;
 
@@ -29,5 +30,8 @@ public class Entry
             ModId,
             pckFolders: ["res://RasForSts2/localization"]);
         RitsuLibFramework.RegisterI18NLocTableBridge(ModId, i18n);
+
+        DarkCurseResource.Register();
+        DarkCurseRunTracker.Initialize();
     }
 }

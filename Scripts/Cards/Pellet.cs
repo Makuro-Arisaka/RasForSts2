@@ -27,7 +27,7 @@ public class Pellet : ModCardTemplate
     private const bool shouldShowInCardLibrary = false;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(4, ValueProp.Move)
+        new DamageVar(3, ValueProp.Move)
     ];
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Shiv];

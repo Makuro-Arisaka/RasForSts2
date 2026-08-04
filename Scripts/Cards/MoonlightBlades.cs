@@ -17,38 +17,41 @@ namespace RasForSts2.Scripts.Cards;
 [RegisterCard(typeof(XilaCardPool))]
 public class MoonlightBlades : XilaCardModel
 {
-	private const int energyCost = 1;
-	private const CardType type = CardType.Power;
-	private const CardRarity rarity = CardRarity.Uncommon;
-	private const TargetType targetType = TargetType.Self;
-	private const bool shouldShowInCardLibrary = true;
+    private const int energyCost = 2;
+    private const CardType type = CardType.Power;
+    private const CardRarity rarity = CardRarity.Rare;
+    private const TargetType targetType = TargetType.Self;
+    private const bool shouldShowInCardLibrary = true;
 
-	public MoonlightBlades() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }
+    public MoonlightBlades() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }
 
-	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // 获得护卫
-        decimal guardAmount = IsUpgraded ? 4m : 2m;
+        decimal guardAmount = DynamicVars["Guard"].BaseValue;
         await PowerCmd.Apply<GuardPower>(choiceContext, Owner.Creature, guardAmount, Owner.Creature, this);
 
-        // 若玩家身上有 QueenHarpPower，则不能切换女王武具，仅获得护卫
         if (!QueenWeaponCmd.CanSwitchWeapon(Owner))
         {
             return;
         }
 
-        // 切换女王武具：移除旧Power + 应用新Power + 通知变更 + 回手疾风连拳
         await QueenWeaponCmd.SwitchWeapon<MoonlightBladesPower>(choiceContext, Owner, this);
     }
 
-	protected override void OnUpgrade() { }
+    protected override void OnUpgrade()
+    {
+        EnergyCost.UpgradeBy(-1);
+        DynamicVars["Guard"].UpgradeValueBy(2m);
+    }
 
-	protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new("Guard", 2m)
+    ];
 
-	public override IEnumerable<CardKeyword> CanonicalKeywords => Array.Empty<CardKeyword>();
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [];
 
-	protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-		QueenWeaponHoverTip.Create(),
-		HoverTipFactory.FromPower<GuardPower>(),
-	];
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        QueenWeaponHoverTip.Create(),
+        HoverTipFactory.FromPower<GuardPower>(),
+    ];
 }

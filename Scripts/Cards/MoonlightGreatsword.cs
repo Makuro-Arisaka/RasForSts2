@@ -17,7 +17,7 @@ namespace RasForSts2.Scripts.Cards;
 [RegisterCharacterStarterCard(typeof(XilaCharacter), 1, Order = 3)]
 public class MoonlightGreatsword : XilaCardModel
 {
-	private const int energyCost = 1;
+	private const int energyCost = 2;
 	private const CardType type = CardType.Skill;
 	private const CardRarity rarity = CardRarity.Basic;
 	private const TargetType targetType = TargetType.Self;

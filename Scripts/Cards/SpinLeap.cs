@@ -17,7 +17,7 @@ public class SpinLeap : XilaCardModel
 {
     private const int energyCost = 0;
     private const CardType type = CardType.Attack;
-    private const CardRarity rarity = CardRarity.Common;
+    private const CardRarity rarity = CardRarity.Uncommon;
     private const TargetType targetType = TargetType.AllEnemies;
     private const bool shouldShowInCardLibrary = true;
 

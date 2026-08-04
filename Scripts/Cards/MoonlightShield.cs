@@ -9,6 +9,8 @@ using RasForSts2.Scripts.Characters;
 using RasForSts2.Scripts.Commands;
 using RasForSts2.Scripts.Helpers;
 using RasForSts2.Scripts.Powers;
+using RasForSts2.Scripts.Resources;
+using STS2RitsuLib.Combat.SecondaryResources;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
 
@@ -27,9 +29,13 @@ public class MoonlightShield : XilaCardModel
 
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // 获得护卫
-        decimal guardAmount = IsUpgraded ? 8m : 5m;
+        // 获得护卫 4(6)
+        decimal guardAmount = IsUpgraded ? 6m : 4m;
         await PowerCmd.Apply<GuardPower>(choiceContext, Owner.Creature, guardAmount, Owner.Creature, this);
+
+        // 获得 1(2) 黑暗法咒
+        int curseAmount = (int)DynamicVars["DarkCurse"].BaseValue;
+        await DarkCurseResource.Gain(Owner, curseAmount, this);
 
         // 若玩家身上有 QueenHarpPower，则不能切换女王武具，仅获得护卫
         if (!QueenWeaponCmd.CanSwitchWeapon(Owner))
@@ -41,9 +47,14 @@ public class MoonlightShield : XilaCardModel
         await QueenWeaponCmd.SwitchWeapon<MoonlightShieldPower>(choiceContext, Owner, this);
     }
 
-	protected override void OnUpgrade() { }
+	protected override void OnUpgrade()
+	{
+		DynamicVars["DarkCurse"].UpgradeValueBy(1m);
+	}
 
-	protected override IEnumerable<DynamicVar> CanonicalVars => Array.Empty<DynamicVar>();
+	protected override IEnumerable<DynamicVar> CanonicalVars => [
+		SecondaryResourceVars.ForLocal("DarkCurse", Entry.ModId, "dark_curse", 1m),
+	];
 
 	public override IEnumerable<CardKeyword> CanonicalKeywords => Array.Empty<CardKeyword>();
 

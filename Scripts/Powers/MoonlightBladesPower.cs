@@ -13,43 +13,52 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace RasForSts2.Scripts.Powers;
 
+/// <summary>
+/// 月光双刀之力
+/// 每打出 2 张牌后抽 1 张牌
+/// </summary>
 [RegisterPower]
 public sealed class MoonlightBladesPower : ModPowerTemplate
 {
-	private class Data
-	{
-		public int drawAmount;
-	}
+    private class Data
+    {
+        public int cardsPlayed;
+    }
 
-	public override PowerType Type => PowerType.Buff;
+    public override PowerType Type => PowerType.Buff;
 
-	public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Single;
 
-	public override PowerAssetProfile AssetProfile => new(IconPath: "res://RasForSts2/images/powers/MoonlightBladesPower.png", BigIconPath: "res://RasForSts2/images/powers/MoonlightBladesPower.png");
+    public override PowerAssetProfile AssetProfile => new(
+        IconPath: "res://RasForSts2/images/powers/MoonlightBladesPower.png",
+        BigIconPath: "res://RasForSts2/images/powers/MoonlightBladesPower.png");
 
-	protected override IEnumerable<DynamicVar> CanonicalVars => [
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new("Count", 2),
         new("Draw", 1)
     ];
 
-    protected override object InitInternalData()
-    {
-        return new Data();
-    }
+    protected override object InitInternalData() => new Data();
 
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
         await base.AfterApplied(applier, cardSource);
-        GetInternalData<Data>().drawAmount = cardSource != null && cardSource.IsUpgraded ? 2 : 1;
-        // 在 Power 被施加后，根据卡牌升级状态更新 DynamicVars 中显示的数值
-        DynamicVars["Draw"].BaseValue = GetInternalData<Data>().drawAmount;
+        var data = GetInternalData<Data>();
+        data.cardsPlayed = 0;
     }
 
-	public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-	{
-		if (cardPlay.Card.Owner.Creature == base.Owner)
-		{
-			int drawAmount = GetInternalData<Data>().drawAmount;
-			await CardPileCmd.Draw(choiceContext, drawAmount, base.Owner.Player);
-		}
-	}
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card.Owner.Creature != base.Owner)
+            return;
+
+        var data = GetInternalData<Data>();
+        data.cardsPlayed++;
+
+        if (data.cardsPlayed >= 2)
+        {
+            data.cardsPlayed = 0;
+            await CardPileCmd.Draw(choiceContext, 1, base.Owner.Player);
+        }
+    }
 }

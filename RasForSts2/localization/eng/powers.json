@@ -18,8 +18,8 @@
   "RAS_FOR_STS2_POWER_GUARD_POWER.title": "Guard",
   "RAS_FOR_STS2_POWER_GUARD_POWER.description": "At the end of your turn, gain 1 [gold]Block[/gold] for each stack of [gold]Guard[/gold]. Whenever you lose [gold]Block[/gold] gained from [gold]Guard[/gold] due to an enemy attack, lose the corresponding number of [gold]Guard[/gold] stacks.",
   "RAS_FOR_STS2_POWER_CURSE_REVEAL_POWER.title": "Curse Reveal",
-  "RAS_FOR_STS2_POWER_CURSE_REVEAL_POWER.description": "Attack damage doubled, Skill [gold]Block[/gold] doubled, enemy [gold]Weak[/gold] and [gold]Vulnerable[/gold] effects doubled, draw 1 card whenever you play a card.",
-  "RAS_FOR_STS2_POWER_CURSE_REVEAL_POWER.smartDescription": "Attack damage doubled, Skill [gold]Block[/gold] doubled, enemy [gold]Weak[/gold] and [gold]Vulnerable[/gold] effects doubled, draw {Draw} cards whenever you play a card.",
+  "RAS_FOR_STS2_POWER_CURSE_REVEAL_POWER.description": "Attack damage doubled, Skill [gold]Block[/gold] doubled, enemy [gold]Weak[/gold] and [gold]Vulnerable[/gold] effects doubled, draw 1 card for every 2 cards you play.",
+  "RAS_FOR_STS2_POWER_CURSE_REVEAL_POWER.smartDescription": "Attack damage doubled, Skill [gold]Block[/gold] doubled, enemy [gold]Weak[/gold] and [gold]Vulnerable[/gold] effects doubled, draw {Draw} card for every {Count} cards you play.",
   "RAS_FOR_STS2_POWER_QUEEN_AXE_POWER.title": "Primeval Battlecry",
   "RAS_FOR_STS2_POWER_QUEEN_AXE_POWER.description": "Attack cards you play this turn deal double damage.",
   "TEMPORARY_STRENGTH_POWER.description": "At the end of your turn, lose {Amount} [gold]Strength[/gold].",
@@ -43,5 +43,9 @@
   "RAS_FOR_STS2_POWER_KNIGHT_MOUSE_SHIELD_FORMATION_POWER.title": "Knight Mouse Shield Formation",
   "RAS_FOR_STS2_POWER_KNIGHT_MOUSE_SHIELD_FORMATION_POWER.description": "[gold]Block[/gold] no longer resets at the start of your turn. This effect is lost when your [gold]Guard[/gold] stacks are cleared.",
   "RAS_FOR_STS2_POWER_STARLIGHT_FROG_DANCE_POWER.title": "Starlight Frog Dance",
-  "RAS_FOR_STS2_POWER_STARLIGHT_FROG_DANCE_POWER.description": "When you inflict a debuff you haven't inflicted before, gain 1 Strength and 1 Dexterity."
+  "RAS_FOR_STS2_POWER_STARLIGHT_FROG_DANCE_POWER.description": "When you inflict a debuff you haven't inflicted before, gain 1 Strength and 1 Dexterity.",
+  "RAS_FOR_STS2_POWER_HOLD_THE_POSITION_POWER.title": "Hold the Position",
+  "RAS_FOR_STS2_POWER_HOLD_THE_POSITION_POWER.description": "At the start of your turn, put a card from your discard pile into your hand and give it Retain.",
+  "RAS_FOR_STS2_POWER_STAR_SEAL_POWER.title": "Star Seal",
+  "RAS_FOR_STS2_POWER_STAR_SEAL_POWER.description": "At the start of your turn, gain {energyPrefix:energyIcons(1)} and {Amount} Vigor. Clear your Guard stacks."
 }
