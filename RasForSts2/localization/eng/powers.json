@@ -20,6 +20,8 @@
   "RAS_FOR_STS2_POWER_CURSE_REVEAL_POWER.title": "Curse Reveal",
   "RAS_FOR_STS2_POWER_CURSE_REVEAL_POWER.description": "Attack damage doubled, Skill [gold]Block[/gold] doubled, enemy [gold]Weak[/gold] and [gold]Vulnerable[/gold] effects doubled, draw 1 card for every 2 cards you play.",
   "RAS_FOR_STS2_POWER_CURSE_REVEAL_POWER.smartDescription": "Attack damage doubled, Skill [gold]Block[/gold] doubled, enemy [gold]Weak[/gold] and [gold]Vulnerable[/gold] effects doubled, draw {Draw} card for every {Count} cards you play.",
+  "RAS_FOR_STS2_POWER_PRECISION_LOCK_POWER.title": "Precision Lock",
+  "RAS_FOR_STS2_POWER_PRECISION_LOCK_POWER.description": "The first [gold]Attack[/gold] you play next turn deals {Amount}% more damage.",
   "RAS_FOR_STS2_POWER_QUEEN_AXE_POWER.title": "Primeval Battlecry",
   "RAS_FOR_STS2_POWER_QUEEN_AXE_POWER.description": "Attack cards you play this turn deal double damage.",
   "TEMPORARY_STRENGTH_POWER.description": "At the end of your turn, lose {Amount} [gold]Strength[/gold].",
@@ -47,5 +49,7 @@
   "RAS_FOR_STS2_POWER_HOLD_THE_POSITION_POWER.title": "Hold the Position",
   "RAS_FOR_STS2_POWER_HOLD_THE_POSITION_POWER.description": "At the start of your turn, put a card from your discard pile into your hand and give it Retain.",
   "RAS_FOR_STS2_POWER_STAR_SEAL_POWER.title": "Star Seal",
-  "RAS_FOR_STS2_POWER_STAR_SEAL_POWER.description": "At the start of your turn, gain {energyPrefix:energyIcons(1)} and {Amount} Vigor. Clear your Guard stacks."
+  "RAS_FOR_STS2_POWER_STAR_SEAL_POWER.description": "At the start of your turn, gain {energyPrefix:energyIcons(1)} and {Amount} Vigor. Clear your Guard stacks.",
+  "RAS_FOR_STS2_POWER_HERO_GREATSWORD_FREE_WEAPON_POWER.title": "Hero Greatsword",
+  "RAS_FOR_STS2_POWER_HERO_GREATSWORD_FREE_WEAPON_POWER.description": "The next [gold]Queen Weapon[/gold] card can be played for free."
 }

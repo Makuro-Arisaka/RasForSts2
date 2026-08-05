@@ -67,5 +67,6 @@ public class PistolShot : XilaCardModel
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         HoverTipFactory.FromCard<Pellet>(),
+        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
     ];
 }

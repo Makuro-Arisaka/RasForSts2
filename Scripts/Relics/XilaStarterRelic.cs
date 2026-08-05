@@ -5,11 +5,14 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using RasForSts2.Scripts.Characters;
 using RasForSts2.Scripts.Cards;
+using RasForSts2.Scripts.Commands;
+using RasForSts2.Scripts.Helpers;
 using RasForSts2.Scripts.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -21,14 +24,6 @@ namespace RasForSts2.Scripts.Relics;
 public class XilaStarterRelic : ModRelicTemplate
 {
 	private bool _hasPlayedQueenWeaponThisCombat;
-
-	private static readonly HashSet<string> QueenWeaponCardIds = new()
-	{
-		"RAS_FOR_STS2_CARD_MOONLIGHT_GREATSWORD",
-		"RAS_FOR_STS2_CARD_MOONLIGHT_SHIELD",
-		"RAS_FOR_STS2_CARD_MOONLIGHT_STAFF",
-		"RAS_FOR_STS2_CARD_MOONLIGHT_BLADES"
-	};
 
 	public override RelicRarity Rarity => RelicRarity.Starter;
 
@@ -43,6 +38,13 @@ public class XilaStarterRelic : ModRelicTemplate
 		new EnergyVar(1),
 		new DynamicVar("Guard", 1m)
 	};
+
+	protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+		QueenWeaponHoverTip.Create(),
+		HoverTipFactory.ForEnergy(this),
+		HoverTipFactory.FromPower<GuardPower>(),
+		HoverTipFactory.Static(StaticHoverTip.Block),
+	];
 
 	public override Task BeforeCombatStart()
 	{
@@ -72,7 +74,7 @@ public class XilaStarterRelic : ModRelicTemplate
 		}
 
 		string cardId = cardPlay.Card.Id.Entry;
-		if (QueenWeaponCardIds.Contains(cardId))
+		if (QueenWeaponCmd.IsQueenWeaponCard(cardPlay.Card))
 		{
 			_hasPlayedQueenWeaponThisCombat = true;
 			Log.Info($"[XilaStarterRelic] First queen weapon card played this combat: {cardId}, gaining 1 energy");

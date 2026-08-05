@@ -32,6 +32,7 @@ public class ShadowWave : XilaCardModel
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         HoverTipFactory.FromPower<StrengthPower>(),
         HoverTipFactory.FromPower<WeakPower>(),
+        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
     ];
 
     public ShadowWave() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }

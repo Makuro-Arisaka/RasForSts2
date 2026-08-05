@@ -49,8 +49,10 @@ public class MoonlightStaff : XilaCardModel
 	public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
 	protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+		HoverTipFactory.FromKeyword(CardKeyword.Retain),
 		QueenWeaponHoverTip.Create(),
 		HoverTipFactory.FromPower<GuardPower>(),
+		HoverTipFactory.Static(StaticHoverTip.Block),
 		HoverTipFactory.FromPower<WeakPower>(),
 		HoverTipFactory.FromPower<VulnerablePower>(),
 	];

@@ -5,8 +5,10 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using RasForSts2.Scripts.Characters;
+using RasForSts2.Scripts.Helpers;
 using RasForSts2.Scripts.Powers;
 using STS2RitsuLib.Cards.DynamicVars;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -50,5 +52,8 @@ public class WindFist : XilaCardModel
 
     protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag>();
 
-    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [];
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        QueenWeaponHoverTip.Create(),
+        HoverTipFactory.FromPower<StrengthPower>(),
+    ];
 }

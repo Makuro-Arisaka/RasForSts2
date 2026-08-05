@@ -35,8 +35,10 @@ public class StarSeal : XilaCardModel
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-        HoverTipFactory.FromPower<VigorPower>(),
         HoverTipFactory.FromPower<GuardPower>(),
+        HoverTipFactory.Static(StaticHoverTip.Block),
+        EnergyHoverTip,
+        HoverTipFactory.FromPower<VigorPower>(),
     ];
 
     public StarSeal() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }

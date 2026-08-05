@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cre33518rax2p"
-path="res://.godot/imported/MelThornFern.png-2e1613d2394458d4bf389a30ef84f9f6.ctex"
+uid="uid://b0mx11gafhsb6"
+path="res://.godot/imported/empty.png-7fb47e08ede9657c5525c2043bcc2c5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RasForSts2/images/cards/MelThornFern.png"
-dest_files=["res://.godot/imported/MelThornFern.png-2e1613d2394458d4bf389a30ef84f9f6.ctex"]
+source_file="res://RasForSts2/images/cards/empty.png"
+dest_files=["res://.godot/imported/empty.png-7fb47e08ede9657c5525c2043bcc2c5d.ctex"]
 
 [params]
 

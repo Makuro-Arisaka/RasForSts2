@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Potions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using RasForSts2.Scripts.Characters;
 using RasForSts2.Scripts.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -25,10 +24,6 @@ public sealed class GoldTouchPotion : ModPotionTemplate
     public override PotionAssetProfile AssetProfile => new(
         ImagePath: "res://RasForSts2/images/potions/GoldTouchPotion.png"
     );
-
-    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-        HoverTipFactory.FromPower<GoldTouchPower>(),
-    ];
 
     // spec: 本场战斗结束时，额外获得掉落金币数量的100%金币
     // 使用药水时施加 GoldTouchPower，记录当前金币作为基准，战斗胜利时发放差额作为额外金币

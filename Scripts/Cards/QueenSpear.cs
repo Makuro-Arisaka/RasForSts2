@@ -62,7 +62,9 @@ public class QueenSpear : XilaCardModel
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         HoverTipFactory.Static(StaticHoverTip.Block),
+        HoverTipFactory.FromPower<ArtifactPower>(),
         HoverTipFactory.FromPower<VulnerablePower>(),
         HoverTipFactory.FromPower<WeakPower>(),
+        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
     ];
 }

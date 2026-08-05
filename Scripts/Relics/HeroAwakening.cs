@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Rooms;
@@ -34,6 +35,14 @@ public class HeroAwakening : ModRelicTemplate
 {
     private bool _hasSwitchedWeaponThisCombat;
     private bool _isSubscribed;
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        HoverTipFactory.FromKeyword(CardKeyword.Retain),
+        QueenWeaponHoverTip.Create(),
+        HoverTipFactory.ForEnergy(this),
+        HoverTipFactory.FromPower<GuardPower>(),
+        HoverTipFactory.Static(StaticHoverTip.Block),
+    ];
 
     private static readonly Type[] QueenWeaponCardTypes = new[]
     {
@@ -100,7 +109,7 @@ public class HeroAwakening : ModRelicTemplate
             return;
         }
 
-        // 从4张女王武具中随机洗牌，取3张让玩家选择1张加入手牌
+        // 从4张女王武具中随机洗牌，取3张让玩家选择1张加入手牌（均为升级版）
         List<Type> shuffled = QueenWeaponCardTypes.ToList();
         player.RunState.Rng.CombatCardSelection.Shuffle(shuffled);
         List<Type> candidates = shuffled.Take(3).ToList();
@@ -112,6 +121,7 @@ public class HeroAwakening : ModRelicTemplate
         {
             CardModel canonical = ModelDb.GetById<CardModel>(ModelDb.GetId(cardType));
             CardModel mutable = combatState.CreateCard(canonical, player);
+            CardCmd.Upgrade(mutable); // 升级的女王武具
             cards.Add(mutable);
         }
 
@@ -120,6 +130,12 @@ public class HeroAwakening : ModRelicTemplate
 
         if (selected != null)
         {
+            // 加入手牌并给予保留（检查避免重复添加）
+            if (!selected.Keywords.Contains(CardKeyword.Retain))
+            {
+                CardCmd.ApplyKeyword(selected, [CardKeyword.Retain]);
+            }
+
             Log.Info($"[HeroAwakening] Selected queen weapon: {selected.Id.Entry}");
             await CardPileCmd.AddGeneratedCardToCombat(selected, PileType.Hand, player);
         }

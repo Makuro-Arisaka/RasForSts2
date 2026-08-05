@@ -44,7 +44,9 @@ public class Sorrow : XilaCardModel
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Exhaust];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        HoverTipFactory.FromKeyword(CardKeyword.Retain),
         HoverTipFactory.FromCard<TrueFriendship>(IsUpgraded),
+        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
     ];
 
     public Sorrow() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }

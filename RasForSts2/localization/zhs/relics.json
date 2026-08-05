@@ -24,7 +24,7 @@
   "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.description": "选择已有的[gold]遗物[/gold]，再次获得一个。",
   "RAS_FOR_STS2_RELIC_RAINBOW_CLOAK.flavor": "七彩流转的披风映照出你一路的收获，也赋予你重温它们的力量。",
   "RAS_FOR_STS2_RELIC_HERO_AWAKENING.title": "英雄的觉悟",
-  "RAS_FOR_STS2_RELIC_HERO_AWAKENING.description": "战斗开始时，选择1张[gold]女王武具[/gold]加入手牌。每场战斗第一次切换[gold]女王武具[/gold]时，回复{Energy:energyIcons()}。战斗开始时获得{Guard}点[gold]护卫[/gold]。",
+  "RAS_FOR_STS2_RELIC_HERO_AWAKENING.description": "战斗开始时，从3张升级的[gold]女王武具[/gold]中选择1张加入手牌并给予[gold]保留[/gold]。每场战斗第一次切换[gold]女王武具[/gold]时，回复{Energy:energyIcons()}。战斗开始时获得{Guard}点[gold]护卫[/gold]。",
   "RAS_FOR_STS2_RELIC_HERO_AWAKENING.selectionPrompt": "选择一张女王武具加入手牌",
   "RAS_FOR_STS2_RELIC_HERO_AWAKENING.flavor": "经过无数次的失败，她终于理解了何为英雄。"
 }

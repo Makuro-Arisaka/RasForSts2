@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -74,4 +75,10 @@ public class MithrilDragonMarch : XilaCardModel
         // 升级：费用 3 → 2
         EnergyCost.UpgradeBy(-1);
     }
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        HoverTipFactory.FromPower<GuardPower>(),
+        HoverTipFactory.Static(StaticHoverTip.Block),
+        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
+    ];
 }

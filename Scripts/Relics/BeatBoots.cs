@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Rooms;
@@ -37,6 +38,12 @@ public class BeatBoots : ModRelicTemplate
         new CardsVar(1),
         new DynamicVar("Guard", 2m)
     };
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        QueenWeaponHoverTip.Create(),
+        HoverTipFactory.FromPower<GuardPower>(),
+        HoverTipFactory.Static(StaticHoverTip.Block),
+    ];
 
     public override Task BeforeCombatStart()
     {

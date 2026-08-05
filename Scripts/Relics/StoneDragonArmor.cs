@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
@@ -32,6 +33,11 @@ public class StoneDragonArmor : ModRelicTemplate
     );
 
     protected override IEnumerable<DynamicVar> CanonicalVars => new[] { new DynamicVar("Guard", 3m) };
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        HoverTipFactory.FromPower<GuardPower>(),
+        HoverTipFactory.Static(StaticHoverTip.Block),
+    ];
 
     public override Task BeforeCombatStart()
     {

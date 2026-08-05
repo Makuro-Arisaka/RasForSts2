@@ -53,5 +53,6 @@ public class MoonlightGreatsword : XilaCardModel
 	protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
 		QueenWeaponHoverTip.Create(),
 		HoverTipFactory.FromPower<GuardPower>(),
+		HoverTipFactory.Static(StaticHoverTip.Block),
 	];
 }

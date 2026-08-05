@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.HoverTips;
 using RasForSts2.Scripts.Characters;
 using STS2RitsuLib.Interop.AutoRegistration;
 
@@ -28,6 +29,10 @@ public class GraduationCrow : XilaCardModel
     public GraduationCrow() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
+    ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

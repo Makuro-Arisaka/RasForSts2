@@ -27,8 +27,8 @@ public class KnightMouseShieldFormation : XilaCardModel
     private const bool shouldShowInCardLibrary = true;
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-        HoverTipFactory.Static(StaticHoverTip.Block),
         HoverTipFactory.FromPower<GuardPower>(),
+        HoverTipFactory.Static(StaticHoverTip.Block),
     ];
 
     public KnightMouseShieldFormation() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }

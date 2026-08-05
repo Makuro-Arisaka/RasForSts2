@@ -35,7 +35,8 @@ public class SteelFangWolfFlash : XilaCardModel
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Exhaust];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-        HoverTipFactory.FromPower<SteelFangWolfFlashPower>(),
+        HoverTipFactory.FromKeyword(CardKeyword.Retain),
+        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
     ];
 
     public SteelFangWolfFlash() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }

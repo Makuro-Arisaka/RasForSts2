@@ -50,5 +50,6 @@ public class RabbitTrap : XilaCardModel
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         HoverTipFactory.FromPower<PoisonPower>(),
         HoverTipFactory.FromPower<WeakPower>(),
+        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
     ];
 }

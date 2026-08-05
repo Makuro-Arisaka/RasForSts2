@@ -37,7 +37,8 @@ public class Panic : XilaCardModel
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-        HoverTipFactory.FromPower<VulnerablePower>(),
+        HoverTipFactory.FromPower<WeakPower>(),
+        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
     ];
 
     public Panic() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }
@@ -52,7 +53,8 @@ public class Panic : XilaCardModel
             .TargetingAllOpponents((MegaCrit.Sts2.Core.Combat.CombatState)CombatState)
             .Execute(choiceContext);
 
-        int totalDamage = attackCommand.Results.SelectMany(results => results).Sum(r => r.TotalDamage);
+        // 统计实际造成的伤害（UnblockedDamage，不含被格挡/溢出部分，与原版"造成伤害"口径一致）
+        int totalDamage = attackCommand.Results.SelectMany(results => results).Sum(r => r.UnblockedDamage);
         if (totalDamage > 0)
         {
             // 获得造成伤害的黑暗法咒层数
@@ -62,7 +64,7 @@ public class Panic : XilaCardModel
         // 给予所有敌人1层虚弱
         foreach (var enemy in CombatState.HittableEnemies)
         {
-            await PowerCmd.Apply<VulnerablePower>(choiceContext, enemy, 1m, Owner.Creature, this);
+            await PowerCmd.Apply<WeakPower>(choiceContext, enemy, 1m, Owner.Creature, this);
         }
 
         // 消耗

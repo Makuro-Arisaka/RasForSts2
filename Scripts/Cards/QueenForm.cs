@@ -54,6 +54,7 @@ public class QueenForm : XilaCardModel
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        HoverTipFactory.FromKeyword(CardKeyword.Retain),
         HoverTipFactory.FromCard<HeroDetermination>(IsUpgraded),
         HoverTipFactory.FromCard<CurseReveal>(IsUpgraded),
     ];

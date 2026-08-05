@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
+using RasForSts2.Scripts.Cards;
 using RasForSts2.Scripts.Helpers;
 using RasForSts2.Scripts.Powers;
 
@@ -59,6 +60,18 @@ public static class QueenWeaponCmd
         Log.Info($"[QueenWeaponCmd] === WindFist Return END ===");
 
         Log.Info($"[QueenWeaponCmd] === SwitchWeapon END ===");
+    }
+
+    /// <summary>
+    /// 判断一张卡是否为女王武具牌（月光大剑/月光盾牌/月光法杖/月光双刀/英雄大剑）。
+    /// </summary>
+    public static bool IsQueenWeaponCard(CardModel card)
+    {
+        return card is MoonlightGreatsword
+            || card is MoonlightShield
+            || card is MoonlightStaff
+            || card is MoonlightBlades
+            || card is HeroGreatsword;
     }
 
     /// <summary>

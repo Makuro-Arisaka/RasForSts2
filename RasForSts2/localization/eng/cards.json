@@ -5,6 +5,9 @@
   "RAS_FOR_STS2_CARD_XILA_DEFEND.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "RAS_FOR_STS2_CARD_PELLET.title": "Pellet",
   "RAS_FOR_STS2_CARD_PELLET.description": "Deal {Damage:diff()} damage to all enemies. {IfUpgraded:show:\\nApply 1 [gold]Weak[/gold] to all enemies.|}",
+  "RAS_FOR_STS2_CARD_PRECISION_LOCK.title": "Precision Lock",
+  "RAS_FOR_STS2_CARD_PRECISION_LOCK.description": "Choose 2 cards to gain [gold]Retain[/gold].\nThe first [gold]Attack[/gold] you play next turn deals {DamageBoost:diff()}% more damage.\nEnd your turn.",
+  "RAS_FOR_STS2_CARD_PRECISION_LOCK.selectionScreenPrompt": "Choose 2 cards to gain [gold]Retain[/gold].",
   "RAS_FOR_STS2_CARD_PISTOL_SHOT.title": "Pistol Shot",
   "RAS_FOR_STS2_CARD_PISTOL_SHOT.description": "{IfUpgraded:show:Choose to [gold]Exhaust[/gold]|Randomly [gold]Exhaust[/gold]} 1 card.\\nPlace {Cards:diff()} [gold]Pellets[/gold] into your hand.",
   "RAS_FOR_STS2_CARD_RELOAD.title": "Reload",
@@ -135,5 +138,8 @@
   "RAS_FOR_STS2_CARD_SORROW.flavor": "Weep, and let the curse carve a path.",
   "RAS_FOR_STS2_CARD_TRUE_FRIENDSHIP.title": "True Friendship",
   "RAS_FOR_STS2_CARD_TRUE_FRIENDSHIP.description": "Gain 1 [gold]Intangible[/gold], gain 50 [gold]Guard[/gold], and gain {DarkCurse:secondaryResourceIcons(dark_curse)}.",
-  "RAS_FOR_STS2_CARD_TRUE_FRIENDSHIP.flavor": "The one who shared your sorrow — now shares your power."
+  "RAS_FOR_STS2_CARD_TRUE_FRIENDSHIP.flavor": "The one who shared your sorrow — now shares your power.",
+  "RAS_FOR_STS2_CARD_HERO_GREATSWORD.title": "Queen Weapon: Hero Greatsword",
+  "RAS_FOR_STS2_CARD_HERO_GREATSWORD.description": "Retain. Gain 3 [gold]Guard[/gold].\\nThe next [gold]Queen Weapon[/gold] card can be played for free.\\nAttacks you play deal double damage, but enemy attacks deal double damage to you.",
+  "RAS_FOR_STS2_CARD_HERO_GREATSWORD.flavor": "The relic tooth remembers your first vow — and returns it sharpened."
 }

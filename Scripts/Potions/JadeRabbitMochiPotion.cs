@@ -30,8 +30,8 @@ public sealed class JadeRabbitMochiPotion : ModPotionTemplate
     );
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        HoverTipFactory.FromKeyword(CardKeyword.Retain),
         QueenWeaponHoverTip.Create(),
-        HoverTipFactory.FromPower<JadeRabbitMochiPower>(),
     ];
 
     // spec: 在本场战斗中，女王武具power可以叠加，卡组中所有女王武具卡牌获得保留。

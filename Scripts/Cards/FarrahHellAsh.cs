@@ -4,6 +4,8 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Models;
 using RasForSts2.Scripts.Characters;
 using RasForSts2.Scripts.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -24,6 +26,11 @@ public class FarrahHellAsh : XilaCardModel
         new DynamicVar("Guard", 1m)
     ];
 
+    // 暂无专属卡图，使用 empty 占位
+    public override CardAssetProfile AssetProfile => new(
+        PortraitPath: "res://RasForSts2/images/cards/empty.png"
+    );
+
     public FarrahHellAsh() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -35,4 +42,9 @@ public class FarrahHellAsh : XilaCardModel
     {
         DynamicVars["Guard"].UpgradeValueBy(1m);
     }
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        HoverTipFactory.FromPower<GuardPower>(),
+        HoverTipFactory.Static(StaticHoverTip.Block),
+    ];
 }

@@ -29,7 +29,7 @@ public class CurseReveal : ModCardTemplate
     private const CardType type = CardType.Power;
     private const CardRarity rarity = CardRarity.Token;
     private const TargetType targetType = TargetType.Self;
-    private const bool shouldShowInCardLibrary = false;
+    private const bool shouldShowInCardLibrary = true;
 
     public CurseReveal() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }
 
@@ -57,5 +57,6 @@ public class CurseReveal : ModCardTemplate
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         QueenWeaponHoverTip.Create(),
         HoverTipFactory.FromPower<DoomPower>(),
+        EnergyHoverTip,
     ];
 }

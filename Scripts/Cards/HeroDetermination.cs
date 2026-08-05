@@ -25,7 +25,7 @@ public class HeroDetermination : ModCardTemplate
     private const CardType type = CardType.Power;
     private const CardRarity rarity = CardRarity.Token;
     private const TargetType targetType = TargetType.Self;
-    private const bool shouldShowInCardLibrary = false;
+    private const bool shouldShowInCardLibrary = true;
 
     public HeroDetermination() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }
 
@@ -49,5 +49,6 @@ public class HeroDetermination : ModCardTemplate
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
         HoverTipFactory.FromPower<GuardPower>(),
+        HoverTipFactory.Static(StaticHoverTip.Block),
     ];
 }

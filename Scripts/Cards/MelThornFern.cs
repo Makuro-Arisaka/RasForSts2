@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using RasForSts2.Scripts.Characters;
@@ -34,6 +35,11 @@ public class MelThornFern : XilaCardModel
         HoverTipFactory.FromPower<DoomPower>(),
         HoverTipFactory.FromPower<PoisonPower>(),
     ];
+
+    // 暂无专属卡图，使用 empty 占位
+    public override CardAssetProfile AssetProfile => new(
+        PortraitPath: "res://RasForSts2/images/cards/empty.png"
+    );
 
     public MelThornFern() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }
 

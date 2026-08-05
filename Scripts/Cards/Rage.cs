@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using RasForSts2.Scripts.Characters;
 using RasForSts2.Scripts.Commands;
+using RasForSts2.Scripts.Helpers;
 using RasForSts2.Scripts.Powers;
 using RasForSts2.Scripts.Resources;
 using STS2RitsuLib.Combat.SecondaryResources;
@@ -36,7 +37,9 @@ public class Rage : XilaCardModel
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        QueenWeaponHoverTip.Create(),
         HoverTipFactory.FromPower<GuardPower>(),
+        HoverTipFactory.Static(StaticHoverTip.Block),
     ];
 
     public Rage() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)

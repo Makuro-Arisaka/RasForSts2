@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -29,6 +30,11 @@ public class TrickeryBook : ModRelicTemplate
         new DynamicVar("Doom", 1m),
         new DynamicVar("Poison", 1m)
     };
+
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        HoverTipFactory.FromPower<DoomPower>(),
+        HoverTipFactory.FromPower<PoisonPower>(),
+    ];
 
     public override async Task AfterCardEnteredCombat(CardModel card)
     {

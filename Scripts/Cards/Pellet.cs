@@ -17,14 +17,15 @@ using STS2RitsuLib.Scaffolding.Content;
 
 namespace RasForSts2.Scripts.Cards;
 
-[RegisterCard(typeof(ColorlessCardPool))]
+// 注册到 TokenCardPool（与原版派生卡 Shiv 一致），防止被发现/药水/熵等局内生成机制选中
+[RegisterCard(typeof(TokenCardPool))]
 public class Pellet : ModCardTemplate
 {
     private const int energyCost = 0;
     private const CardType type = CardType.Attack;
     private const CardRarity rarity = CardRarity.Token;
     private const TargetType targetType = TargetType.AllEnemies;
-    private const bool shouldShowInCardLibrary = false;
+    private const bool shouldShowInCardLibrary = true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(3, ValueProp.Move)

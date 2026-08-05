@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://np4ac284k5sk"
-path="res://.godot/imported/AsaRainbowGem.png-b568cc47e09af297c1832472b785d44d.ctex"
+uid="uid://jrt3ab3smgq6"
+path="res://.godot/imported/PrecisionLock.png-012d2bbf255de5a98f833880ff3a63b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RasForSts2/images/cards/AsaRainbowGem.png"
-dest_files=["res://.godot/imported/AsaRainbowGem.png-b568cc47e09af297c1832472b785d44d.ctex"]
+source_file="res://RasForSts2/images/cards/PrecisionLock.png"
+dest_files=["res://.godot/imported/PrecisionLock.png-012d2bbf255de5a98f833880ff3a63b2.ctex"]
 
 [params]
 

@@ -31,7 +31,9 @@ public class FlameShadowStep : XilaCardModel
     ];
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
-        HoverTipFactory.FromCard<MegaCrit.Sts2.Core.Models.Cards.Burn>(IsUpgraded),
+        // 灼伤(Burn)无升级形态，传 IsUpgraded 会在升级预览时抛
+        // "cannot be upgraded past its MaxUpgradeLevel" 导致悬浮消失，固定用基础版
+        HoverTipFactory.FromCard<MegaCrit.Sts2.Core.Models.Cards.Burn>(),
         EnergyHoverTip,  // 显示能量图标悬浮提示
     ];
 

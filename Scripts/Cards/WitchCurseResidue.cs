@@ -35,6 +35,7 @@ public class WitchCurseResidue : XilaCardModel
     private const int doomAmount = 13;
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        EnergyHoverTip,
         HoverTipFactory.FromPower<DoomPower>(),
         HoverTipFactory.FromPower<VulnerablePower>(),
         HoverTipFactory.FromPower<WeakPower>(),

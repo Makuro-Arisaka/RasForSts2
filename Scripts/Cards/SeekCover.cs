@@ -44,6 +44,7 @@ public class SeekCover : XilaCardModel
     }
 
     protected override IEnumerable<IHoverTip> AdditionalHoverTips => [
+        HoverTipFactory.Static(StaticHoverTip.Block),
         HoverTipFactory.FromCard<Pellet>(IsUpgraded),
     ];
 }
