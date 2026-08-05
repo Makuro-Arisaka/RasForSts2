@@ -36,7 +36,7 @@ public class TrueFriendship : ModCardTemplate
         new PowerVar<IntangiblePower>(1m),
     ];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     public override CardAssetProfile AssetProfile => new(
         PortraitPath: "res://RasForSts2/images/cards/empty.png"
@@ -46,6 +46,7 @@ public class TrueFriendship : ModCardTemplate
         HoverTipFactory.FromPower<IntangiblePower>(),
         HoverTipFactory.FromPower<GuardPower>(),
         HoverTipFactory.Static(StaticHoverTip.Block),
+        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
     ];
 
     public TrueFriendship() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary) { }

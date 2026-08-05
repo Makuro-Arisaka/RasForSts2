@@ -50,9 +50,10 @@ public class MelThornFern : XilaCardModel
             .TargetingAllOpponents((MegaCrit.Sts2.Core.Combat.CombatState)CombatState)
             .Execute(choiceContext);
 
-        foreach (DamageResult result in ((IEnumerable<DamageResult>)attackCommand.Results))
+        // 对所有敌人造成伤害，并按实际造成的伤害施加等量灾厄和中毒
+        foreach (DamageResult result in attackCommand.Results.SelectMany(results => results))
         {
-            decimal damage = result.TotalDamage;
+            int damage = result.UnblockedDamage;
             if (damage > 0)
             {
                 await PowerCmd.Apply<DoomPower>(choiceContext, result.Receiver, damage, Owner.Creature, this);
